@@ -1,0 +1,2 @@
+import xbmc
+xbmc.playSFX('/home/pi/lcars/wav/tos-lcars-working-msg.WAV')

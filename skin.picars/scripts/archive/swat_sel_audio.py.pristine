@@ -1,0 +1,11 @@
+#!/usr/bin/env python
+import xbmc
+import json
+jsonSWAT_Sel_Audio = '{"jsonrpc":"2.0","method":"Settings.GetSettingValue", "params":{"setting":"audiooutput.audiodevice"},"id":1}'
+jsonSWAT_Notify = '{"jsonrpc":"2.0","method":"GUI.ShowNotification","params":{"title":"Audio Output","message":"%s","image":"info"},"id":1}'
+result = json.loads(xbmc.executeJSONRPC(jsonSWAT_Sel_Audio))['result']['value']
+print result
+print result[3] 
+xbmc.executeJSONRPC(jsonSWAT_Notify % result)
+
+

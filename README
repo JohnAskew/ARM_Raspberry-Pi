@@ -1,0 +1,81 @@
+'Picars'
+------------------------------------------ 
+Synopsis
+------------------------------------------
+Kodi Skin themed with Star Trek Original Series, LCARS - Library Computer Access and Retrieval. The skin replicates the visuals as portrayed on t.v. In addition to visuals, many short-cut icons or buttons were added to streamline interacting with Kodi, as well as a dedicated screen (tab) for visually observing system performance. The computer is named, computer, as that is how the t.v. series referred to the LCARS or computer system. Some of the default Kodi menu items have been renamed to match the starship theme, such as, System becomes Bridge, as in where the captain commands from. Root user password is: startrek
+
+The main menu relies on 4 tabs located on the left side of the screen. Each menu is available on demand by clicking on the tab, allowing the main screen to remain uncluttered unless being used. The 4 tabs are separated by function and are themed to match the commander of the starship, the engineering first officer and the science first officer. Drilling down into the menus are themed for the appropriate officer. In order from top to bottom:
+Main selection menu - (yellow) for the Commander
+System Performance - (red) Engineering
+Kodi controls, date and weather - (blue) Science
+Favorites and Reboot/Shutdown - (yellow) Commander
+
+The favourites auto-scrolls, so if you over 20 fav, the menu will scroll to the next page for you.
+
+The only modification needed to get the icon/shortcut buttons and sounds to work appears in /root/.kodi/addons/skin.picars/720p/Variables.xml and is clarified in the Code example section. It only applies if your Kodi install is to a directory other than /root/.kodi.
+
+
+-------------------------------------------
+Code Example
+-------------------------------------------
+You will need /root/.kodi to be linked to your kodi install if you desire the sounds to work. 
+
+Setting v_SCRIPT_HOME
+It contains the path of where Kodi was installed and includes the path to the skin itself. For example, if  Kodi was installed as root, root's home directory is /root, the kodi install directory was installed as /root/.kodi, then v_SCRIPT_HOME would be <value>/root/.kodi/addons/skin.picars/scripts</value>. This should be the only modification needed and only if kodi was installed in a directory other than /root/.kodi. If this is the case, then using softlinks can get around the issue. For example, if Kodi was installed to /usr/share/kodi, one could make a softlink pointing to /root/.kodi, such as the command: ln -s /usr/share/kodi /root/.kodi
+
+Once the link is created, if you can cd into /root/.kodi/addons, then the link worked and the scripts will be utilized.
+
+Script overview
+The wave or sound files are controlled by python and rely upon 1 setting in Variables.xml, pointing to the home directory of Kodi. The entry is "v_SCRIPT_HOME". 
+
+v_SCRIPT_HOME=/root/.kodi/addons/skin.picars/720p/scripts
+Bash scripts=/root/.kodi/addons/skin.picars/scripts/bash
+
+Python is used to control the skin. The sound python scripts use JSON to communicate with Kodi. Buttons and sounds are controlled by python scripts. They are activated in the Kodi code as actions for <onclick>. A line item example is:
+<onclick>RunScript($VAR[v_SCRIPT_HOME]/lcars_wav_aff.py)</onclick>, where
+$VAR[v_SCRIPT_HOME] was defined in /root/.kodi/addons/skin.picars/720p/Variables.xml.
+
+-------------------------------------------
+Motivation
+-------------------------------------------
+The kid in me (explaining the cheesiness of the skin) wanted to interact with a computer as they did in the original t.v. series of Star Trek. There was no Star Trek, LCARS theme  for Kodi I could find, so I created this skin. The premise is to emulate the computer on the original t.v. series. 
+
+------------------------------------------
+Installation
+-------------------------------------------
+1. The skin goes in the addons directory of your kodi install. If you installed kodi under /root/.kodi, then the skin goes in /root/.kodi/addons. Upload and then reboot to pick up the new skin. From there, the Main Menu can access Kodi Settings --> Appearance --> Skin. Change to Picars. Set the Fonts to Picars and you are done with initial setup. I included the Klingon font, if you are so inclined. 
+
+2. Change /skin.picars/720p/Variables.xml setting, "v_SCRIPT_HOME" to point to where you installed kodi and this skin. The default setting is /root/.kodi/addons/skin.picars/scripts. This default assumes kodi was installed into /root/.kodi and the skin was installed in /root/.kodi/addons.
+
+3. You will need to create a soft link to /root/.kodi to get the sounds to work. For example, if Kodi was installed to /usr/share/kodi, one could make a softlink pointing to /root/.kodi, such as the command: ln -s /usr/share/kodi /root/.kodi. Once the link is created, if you can cd into /root/.kodi/addons, then the link worked and the scripts will be utilized.
+
+-------------------------------------------
+Tests
+-------------------------------------------
+1. Does kodi run? Having it boot up and run seems insulting, but troubleshooting is simplied when confidence in the base product runs defect free.
+
+2. From the main menu, ensure you see 4 tabs on the left side of screen.They are color coded from top to bottom, yellow, red, blue, and yellow. If you do not see them, but you do see the skin itself is operational, then it might be your display settings. Try reducing the resolution to shrink the display and retry.
+
+
+3. Ensure softlink in place. Once the link is created, if you can cd into /root/.kodi/addons, then the link worked and the scripts will be utilized.
+
+
+4. Test the scripts. Main Menu, left side of screen, 3rd tab (blue), click on that to bring out the Science tab. Hover over Display Volume. The pop-up on the right side of screen should present the current volume setting. If not, then the skin does not see the script directory. Ensure the /root/.kodi directory is linked to the kodi install directory. Secondly, ensure you set the v_SCRIPT_HOME in Variables.xml. If you make the change to Variables.xml, you can refresh Kodi from the Main Menu, on the first tab (yellow, Captains tab). The first vertical entry is ReLoad Skin. Click on Reload Skin to refresh the settings and retest this step.
+
+ 
+
+5. Ensure system does not hang on reboot. From Main menu, choose bottom yellow tab and click on the red Engineering button. The shutdown/reboot menu should fade in. Click on reboot. The computer should restart. When it does, launch Kodi and repeat the process, but this time, instead of choosing reboot, choose, Custom shutdown timer. Enter "1" and click <Done>. In 60 seconds, kodi should shut down but the computer should remain up and running.
+
+
+6. Test sounds. Navigate to change the kodi settings. As you progress thru the main menus, the computer should respond. If not, test 3 scenarios:
+
+a. Is Kodi muted? Might want to ensure the volume is set to 100%. You can set the volume by going to Main Menu, left side of screen and clicking on 3rd blue tab, the Science tab. Click on the Volume UP button. Repeat test.
+
+b. Can kodi see the sound scripts. Enough of that has been defined in the above write up.
+
+c. The volume setting is set to HDMI and you are not using HDMI audio. The alternative is Analogue. You can toggle the settings. From the main menu, choose the 3rd blue tab and click on the CONFIG AUDIO button. This will flip you between HDMI and Analogue output, where analogue is using the computer speakers.
+
+-------------------------------------------
+License
+-------------------------------------------
+Under GPL. All content, including the custom code in this skin is published to the open, general domain. This skin claims 0% proprietary content. Star Trek is owned by CBS. All graphics not developed in house were taken from the internet and any rights belong to the original authors. I knowingly have not added any content that might be considered for licensed use only.

@@ -1,0 +1,4 @@
+[B]1.0.0[/B]
+
+- 2016.11.05 Initial test release as a skin. Modz include bash/python scripts and enhancements to Linux O.S. for audio.
+

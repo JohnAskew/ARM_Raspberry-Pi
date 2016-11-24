@@ -1,0 +1,3 @@
+import xbmc
+if  not xbmc.Player().isPlaying() :
+    xbmc.executebuiltin("PlayMedia(/home/pi/lcars/wav/settings/metorology.mp3)")

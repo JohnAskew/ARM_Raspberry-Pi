@@ -1,0 +1,3 @@
+import xbmc, xbmcgui
+xbmc.executebuiltin("Notification(ATTENTION, System Shut Down, 10000,/home/pi/lcars/shut/An_Redalert02.gif)")
+xbmc.playSFX('/home/pi/lcars/wav/offline.wav')

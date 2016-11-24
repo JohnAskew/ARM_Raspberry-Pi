@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+        <variable name="v_Clock_condition">
+                <value condition="Container(9000).HasFocus(1) | Container(9000).HasFocus(2) | Container(9000).HasFocus(3) | Container(9000).HasFocus(4) | Container(9000).HasFocus(5) | Container(9000).HasFocus(6) | Container(9000).HasFocus(7) | Container(9000).HasFocus(8) | Container(9000).HasFocus(9) | Container(9000).HasFocus(10) | Container(9000).HasFocus(11) | Container(9000).HasFocus(12)">$INFO[System.Time(hh:mm:ss)]</value>
+                <value>$INFO[System.Time(hh:mm:ss)]</value>
+        </variable>
+        <variable name="v_ContentPanelMirror">
+                <value>rcz_ContentPanelMirror.png</value>
+        </variable>
+        <variable name="v_starfleet_emblem">
+                <value>rczi_starfleet_v9.gif</value> <!--rcz_starfleet_metal.png</value-->
+        </variable>
+        <variable name="lcars_auth_comm_gif">
+                <value>lcars_auth_comm.gif</value>
+        </variable>
+        <variable name="v_auth_engine_png">
+                <value>lcars_auth_engineering.png</value><!--lcz_base_accgrnt_engine5.png</value-->
+        </variable>
+        <variable name="v_auth_engine_gif">
+                 <value>lcars_auth_engineering.gif</value>
+        </variable>
+        <variable name="v_base_png">
+                <value>lcz_base.png</value>
+        </variable>
+        <variable name="v_starfleet_emblem_png">
+                <value>rczi_starfleet_20150521l.png</value>
+        </variable>
+        <variable name="v_auth_science_gif">
+                <value>lcars_auth_science.gif</value>
+        </variable>
+        <variable name="v_select_back">			<!--Askew20160917-->
+		<value>ContentPanel.png</value>		<!--Askew20160917-->
+	</variable>					<!--Askew20160917-->
+	<variable name="v_SCRIPT_HOME">
+		<value>/root/.kodi/addons/skin.picars/scripts</value>
+	</variable>
+	
+	
+</includes>
+

@@ -1,0 +1,2 @@
+import xbmc
+xbmc.playSFX('/home/osmc/.kodi/addons/skin.confluence7/lcars/wav/tos-lcars-working-msg.WAV')

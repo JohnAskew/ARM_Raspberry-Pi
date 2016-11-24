@@ -1,0 +1,3 @@
+import xbmc
+
+xbmc.executebuiltin("Notification(Hello John,Did you check CPU Thermal readings?)")

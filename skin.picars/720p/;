@@ -1,0 +1,149 @@
+<window type="dialog">
+	<defaultcontrol always="true">450</defaultcontrol>
+	<coordinates>
+		<system>1</system>
+		<posx>0</posx>
+		<posy>0</posy>
+	</coordinates>
+	<controls>
+		<control type="group">
+			<animation effect="slide" start="400,0" end="0,0" time="400" tween="quadratic" easing="out">WindowOpen</animation>
+			<animation effect="slide" start="0,0" end="400,0" time="400" tween="quadratic" easing="out">WindowClose</animation>
+			<control type="image">
+				<posx>400r</posx>
+				<posy>0</posy>
+				<width>500</width>					<!--CHG was 400 Askew 20152028-->
+				<height>720</height>
+				<texture border="15,0,0,0" flipx="true">HomeBladeSub.png</texture> <!-- NoCHG HomeBladeSub.png Askew 20150325-->
+			</control>
+			<control type="image">						<!--ADD Askew 20150325-->
+				<!--description add commander emblem</description-->	<!--ADD Askew 20150325-->
+				<posx>175r></posx>					<!--ADD Askew 20150325-->
+				<posy>5</posy>						<!--ADD Askew 20150325-->
+				<width>175</width>					<!--ADD Askew 20150325-->
+				<height>71</height>					<!--ADD Askew 20150325-->
+				<aspectratio>keep</aspectratio>				<!--ADD Askew 20150325-->
+				<texture>lcars_auth_comm_mini.png</texture>		<!--ADD Askew 20150325-->
+			</control>							<!--ADD Askew 20150325-->
+			<control type="button">
+				<description>Close Window button</description>
+				<posx>380r</posx>
+				<posy>0</posy>
+				<width>64</width>
+				<height>32</height>
+				<label>-</label>
+				<font>-</font>
+				<onclick>PreviousMenu</onclick>
+				<texturefocus>DialogCloseButton-focus.png</texturefocus>
+				<texturenofocus>DialogCloseButton.png</texturenofocus>
+				<onleft>450</onleft>
+				<onright>450</onright>
+				<onup>450</onup>
+				<ondown>450</ondown>
+				<visible>system.getbool(input.enablemouse)</visible>
+			</control>
+			<control type="image">
+				<posx>370r</posx>
+				<posy>70</posy>						<!--CHG was 30  Askew 20150328-->
+				<width>150</width>					<!--CHG was 200 Askew 20152028-->
+				<height>150</height>					<!--CHG was 200 Askew 20152028-->
+				<aspectratio align="center">keep</aspectratio>
+				<fadetime>IconCrossfadeTime</fadetime>
+				<texture>$INFO[ListItem.Icon]</texture>
+				<bordertexture border="8">ThumbShadow.png</bordertexture>
+				<bordersize>8</bordersize>
+			</control>
+			<control type="list" id="450">
+				<posx>390r</posx>
+				<posy>250</posy>
+				<width>500</width>
+				<height>380</height>
+				<onup>450</onup>
+				<onleft>Dialog.Close(Favourites)</onleft>
+				<onright>450</onright>
+				<ondown>450</ondown>
+                                <pagecontrol></pagecontrol>						<!--CHG was -  Askew 20150329-->
+      				<autoscroll>true</autoscroll>						<!--ADD Askew 20150329-->
+      				<scrolltime tween="Circle" easing="in">5000</scrolltime>		<!--CHG was easing="out" Askew 20150403-->
+      				<scrolltime tween="Linear" easing="out">5000</scrolltime>		<!--CHG was easing="out" Askew 20150403-->
+                                <scrollspeed>1000</scrollspeed>						<!--CHG Askew 20150403-->
+                                <pauseatend>200</pauseatend>						<!--CHG Askew 20150403-->
+                                <itemgap>2</itemgap>							<!--ADD Askew 20150325-->
+				<itemlayout height="30">						<!--CHG was 40  Askew 20150328-->
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>470</width>					<!--CHG was 370 Askew 20150328-->
+						<height>34</height>					<!--CHG was 40  Askew 20150328-->
+						<texture border="5">button-nofocus.png</texture>
+					</control>
+					<control type="label">
+						<posx>10</posx>
+						<posy>0</posy>
+						<width>500</width>					<!--CHG was 350 Askew 20150328-->
+						<height>34</height>					<!--CHG was 40  Askew 20150328-->
+						<font>font18_title</font>				<!--CHG was font20_title Askew 20150328-->
+						<align>left</align>
+						<aligny>center</aligny>
+						<selectedcolor>selected</selectedcolor>
+						<info>ListItem.Label</info>
+					</control>
+					<control type="image">                                          <!--ADD Askew 20150325-->
+						<!--description add starfleet emblem</description-->    <!--ADD Askew 20150325-->
+						<posx>340</posx>                                        <!--ADD Askew 20150325-->
+						<posy>0</posy>                                          <!--ADD Askew 20150325-->
+						<aligny>center</aligny>					<!--ADD Askew 20150325-->
+						<width>35</width>                                       <!--ADD Askew 20150325-->
+                                		<height>35</height>                                     <!--ADD Askew 20150325-->
+                                		<aspectratio>keep</aspectratio>  	                <!--ADD Askew 20150325-->
+                                		<texture>starflee.png</texture>                         <!--ADD Askew 20150325-->
+                        		</control>                                                      <!--ADD Askew 20150325-->
+				</itemlayout>
+				<focusedlayout height="34">						<!--CHG was 40  Askew 20150328-->
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+                                                <width>470</width>                                      <!--CHG was 370 Askew 20150328-->
+                                                <height>34</height>                                     <!--CHG was 40  Askew 20150328-->
+						<visible>!Control.HasFocus(450)</visible>
+						<texture border="3">button-nofocus.png</texture>
+					</control>
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>470</width>					<!--CHG was 370 Askew 20150328-->
+						<height>34</height>					<!--CHG was 40  Askew 20150328-->
+						<visible>Control.HasFocus(450)</visible>
+						<texture border="3">lcars_HomeSubFO_new_long.gif</texture>		<!--CHG was button-focus.png Askew 20150328-->
+					</control>
+					<control type="label">
+						<posx>10</posx>
+						<posy>0</posy>
+                                                <width>500</width>                                      <!--CHG was 350 Askew 20150328-->
+                                                <height>34</height>                                     <!--CHG was 40  Askew 20150328-->
+						<font>font18_title</font>                               <!--CHG was font20_title Askew 20150328-->
+						<align>left</align>
+						<aligny>center</aligny>
+						<selectedcolor>selected</selectedcolor>							<!--NO CHG Askew 20150328-->
+						<textcolor>FFFFFFFF</textcolor>								<!--ADD Askew 20150328-->
+						<info>ListItem.Label</info>
+                                                <animation effect="slide" end="30,0" time="200">Focus</animation>			<!--ADD Askew 20150328-->
+						<animation effect="zoom" end="130,100" center="360,288" time="200">Focus</animation>	<!--ADD Askew 20150328-->
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="label">
+				<description>Page label</description>
+				<posx>30r</posx>
+				<posy>670</posy>
+				<width>350</width>
+				<height>31</height>							<!--CHG was 30 Askew 20150328-->
+				<align>right</align>
+				<aligny>center</aligny>
+				<font>font18</font>							<!--CHG was font20 Askew 20150328-->
+				<textcolor>grey</textcolor>
+				<label>([COLOR=blue]$INFO[Container(450).NumItems][/COLOR]) $LOCALIZE[31025] - $LOCALIZE[31024] ([COLOR=blue]$INFO[Container(450).CurrentPage]/$INFO[Container(450).NumPages][/COLOR])</label>
+			</control>
+		</control>
+	</controls>
+</window>

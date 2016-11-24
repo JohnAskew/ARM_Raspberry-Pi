@@ -1,0 +1,6 @@
+import xbmc, time
+time.sleep(0.5)
+if  not xbmc.Player().isPlaying() :
+    xbmc.executebuiltin("PlayMedia(lcars_close_swoosh.py)")
+    time.sleep(0.5)
+    xbmc.executebuiltin("PlayMedia(/home/osmc/.kodi/addons/skin.confluence7/lcars/wav/lcars_cancelled.wav)")

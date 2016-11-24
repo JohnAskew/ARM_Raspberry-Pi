@@ -1,0 +1,100 @@
+import xbmc, xbmcgui, os, subprocess
+ 
+#get actioncodes from https://github.com/xbmc/xbmc/blob/master/xbmc/guilib/Key.h
+ACTION_PREVIOUS_MENU = 10
+ACTION_SELECT_ITEM = 7
+command = 'bash /home/osmc/.kodi/addons/skin.confluence7/scripts/bash/bcmstat.sh -cgmZ4'
+ 
+class MainClass(xbmcgui.WindowDialog):
+  def __init__(self):
+    self.strActionInfo = xbmcgui.ControlLabel(180, 60, 200, 200, '', 'font14', '0xFFBBBBFF')
+    self.addControl(self.strActionInfo)
+    self.strActionInfo.setLabel('CLICK ME to quit - A to open another window')
+    self.list = xbmcgui.ControlList(200, 150, 300, 400) #Askew20150131
+    self.addControl(self.list) #Askew20150131
+    self.list.addItem('Close Window') #Askew20150131
+    self.setFocus(self.list) #Askew20150131
+ 
+  def onAction(self, action):
+    if action == ACTION_PREVIOUS_MENU:
+      self.close()
+    if action == ACTION_SELECT_ITEM:
+      popup = ChildClass()
+      popup .doModal()
+      del popup 
+
+  def onControl(self, control):
+    if control == self.list:
+      item = self.list.getSelectedItem()
+      #self.message('You selected : ' + item.getLabel())
+      self.close()
+
+  def run_command(command):
+    p=subprocess.Popen(command,
+                       stdout=subprocess.PIPE,
+                       stderr=subprocess.STDOUT)
+    return iter(p.stdout.readline, b'')
+
+  def localinfos(self):
+    for line in run_command(command):
+        print(line)
+    myinfos1 = xbmc.getLanguage()
+    self.strActionInfo = xbmcgui.ControlLabel(100, 150, 200, 200, '', 'font13', '0xFFFFFFFF')
+    self.addControl(self.strActionInfo)
+    self.strActionInfo.setLabel('Your language is : ' + myinfos1)
+    myinfos2 = xbmc.getIPAddress()
+    self.strActionInfo = xbmcgui.ControlLabel(100, 200, 200, 200, '', 'font13', '0xFFFFFFFF')
+    self.addControl(self.strActionInfo)
+    self.strActionInfo.setLabel('Your IP adress is : ' + myinfos2)
+    myinfos3 = xbmc.getDVDState()
+    self.strActionInfo = xbmcgui.ControlLabel(100, 250, 200, 200, '', 'font13', '0xFFFFFFFF')
+    self.addControl(self.strActionInfo)
+    dvdstate = ''
+    if (myinfos3 == 1):
+      dvdstate = 'DRIVE_NOT_READY'
+    if (myinfos3 == 16):
+      dvdstate = 'TRAY_OPEN'
+    if (myinfos3 == 64):
+      dvdstate = 'TRAY_CLOSED_NO_MEDIA'
+    if (myinfos3 == 96):
+      dvdstate = 'TRAY_CLOSED_MEDIA_PRESENT'            
+    self.strActionInfo.setLabel('dvd state : ' + dvdstate )
+    myinfos4 = xbmc.getFreeMem()
+    self.strActionInfo = xbmcgui.ControlLabel(100, 300, 200, 200, '', 'font13', '0xFFFFFFFF')
+    self.addControl(self.strActionInfo)
+    self.strActionInfo.setLabel('free mem : ' + str(myinfos4) + ' Mb')
+ 
+class ChildClass(xbmcgui.WindowDialog):
+  def __init__(self):
+    self.addControl(xbmcgui.ControlImage(370,100,500,500, 'orange.gif'))
+    self.strActionInfo = xbmcgui.ControlLabel(200, 60, 200, 200, '', 'font14', '0xFFBBFFBB')
+    self.addControl(self.strActionInfo)
+    self.strActionInfo.setLabel('Push BACK to return to the first window')
+    self.strActionInfo = xbmcgui.ControlLabel(240, 200, 200, 200, '', 'font13', '0xFFFFFF99')
+    self.addControl(self.strActionInfo)
+    self.strActionInfo.setLabel('This is the child window')
+    self.list = xbmcgui.ControlList(200, 150, 300, 400)
+    self.addControl(self.list)
+    self.list.addItem('Item 1')
+    self.list.addItem('Item 2')
+    self.list.addItem('Item 3')
+    self.setFocus(self.list)
+
+  def onAction(self, action):
+    if action == ACTION_PREVIOUS_MENU:
+      self.close()
+ 
+  def onControl(self, control):
+    if control == self.list:
+      item = self.list.getSelectedItem()
+      self.message('You selected : ' + item.getLabel())  
+ 
+  def message(self, message):
+    dialog = xbmcgui.Dialog()
+    dialog.ok(" My message title", message) 
+
+mydisplay = MainClass()
+mydisplay.run_command()
+mydisplay.localinfos()
+mydisplay .doModal()
+del mydisplay

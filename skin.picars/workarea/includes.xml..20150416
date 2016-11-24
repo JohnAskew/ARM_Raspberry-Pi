@@ -1,0 +1,1634 @@
+<includes>
+	<include file="defaults.xml" />
+	<include file="ViewsVideoLibrary.xml" />
+	<include file="ViewsMusicLibrary.xml" />
+	<include file="ViewsFileMode.xml" />
+	<include file="ViewsPictures.xml" />
+	<include file="ViewsAddonBrowser.xml" />
+	<include file="ViewsLiveTV.xml" />
+	<include file="ViewsPVR.xml" />
+	<include file="IncludesCodecFlagging.xml" />
+	<include file="IncludesHomeRecentlyAdded.xml" />
+	<include file="IncludesHomeMenuItems.xml" />
+	<include file="IncludesBackgroundBuilding.xml" />
+	<include file="weather\10DayForecast.xml" />
+	<include file="weather\36HourForecast.xml" />
+	<include file="weather\WeekendForecast.xml" />
+	<include file="weather\HourlyForecast.xml" />
+	<include file="weather\MapAlerts.xml" />
+
+	<constant name="FanartCrossfadeTime">500</constant>
+	<constant name="IconCrossfadeTime">400</constant>
+
+	<variable name="BannerThumb">
+		<value condition="!IsEmpty(ListItem.Art(banner))">$INFO[ListItem.Art(banner)]</value>
+		<value condition="IsEmpty(ListItem.Art(banner))">$INFO[ListItem.Icon]</value>
+	</variable>
+	<variable name="PosterThumb">
+		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
+		<value condition="IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Icon]</value>
+	</variable>
+
+	<include name="BehindDialogFadeOut">
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<texture>black-back.png</texture>
+			<animation effect="fade" time="400">Visible</animation>
+			<animation effect="fade" time="200">Hidden</animation>
+			<visible>Window.IsActive(MovieInformation) | Window.IsActive(MusicInformation) | Window.IsActive(SongInformation) | Window.IsActive(FileBrowser) | Window.IsActive(TextViewer) | Window.IsActive(AddonSettings) | Window.IsActive(ContentSettings) | Window.IsActive(SelectDialog) | Window.IsActive(FileStackingDialog) | Window.IsActive(MediaSource) | Window.IsActive(PictureInfo) | Window.IsActive(PlayerControls) | Window.IsActive(VirtualKeyboard) | Window.IsActive(NumericInput) | Window.IsActive(ProfileSettings) | Window.IsActive(LockSettings) | Window.IsActive(SmartPlaylistEditor) | Window.IsActive(SmartPlaylistRule) | Window.IsActive(script-RSS_Editor-rssEditor.xml) | Window.IsActive(script-RSS_Editor-setEditor.xml) | Window.IsActive(AddonInformation) | Window.IsActive(Peripherals) | Window.IsActive(PeripheralSettings) | Window.IsActive(script-XBMC_Lyrics-main.xml) | Window.IsActive(PVRChannelManager) | Window.IsActive(MediaFilter)</visible>
+		</control>
+	</include>
+	<include name="WindowTitleCommons">
+		<posx>0</posx>
+		<posy>0</posy>
+		<width min="0" max="800">auto</width>
+		<height>30</height>
+		<font>font14</font>
+		<textcolor>white</textcolor>
+		<shadowcolor>black</shadowcolor>
+		<scroll>false</scroll>
+		<align>left</align>
+		<aligny>center</aligny>
+	</include>
+	<include name="ButtonCommonValues">
+		<height>40</height>
+		<width>250</width>
+		<textoffsetx>10</textoffsetx>
+		<textwidth>200</textwidth>
+		<aligny>center</aligny>
+		<font>font13</font>
+		<texturefocus border="5">button-focus.png</texturefocus>
+		<texturenofocus>-</texturenofocus>
+		<pulseonselect>false</pulseonselect>
+	</include>
+	<include name="ButtonMediaSubCommonValues">
+		<height>40</height>
+		<width>221</width>
+		<textoffsetx>20</textoffsetx>
+		<textwidth>195</textwidth>
+		<aligny>center</aligny>
+		<font>font12_title</font>
+		<texturefocus border="5">button-focus.png</texturefocus>
+		<texturenofocus border="5">button-nofocus.png</texturenofocus>
+		<pulseonselect>false</pulseonselect>
+	</include>
+<!-- This is the HOME Sub Menu line 							ADD Askew 20150402-->
+<!-- This is the HOME Sub Menu line 							ADD Askew 20150402-->
+<!-- This is the HOME Sub Menu line 							ADD Askew 20150402-->
+	<include name="ButtonHomeSubCommonValues">
+		<height>35</height>
+		<width>180</width>
+		<textwidth>195</textwidth>
+		<align>center</align>
+		<aligny>center</aligny>
+		<font>font12</font>
+		<textcolor>grey2</textcolor>
+		<focusedcolor>white</focusedcolor>				<!--CHG Askew20150121-->
+		<texturefocus border="5">lcars_HomeSubFO.gif</texturefocus>	<!--CHG Askew20150203-->
+		<texturenofocus border="5">lcz_HomeSubNF_1.png</texturenofocus>	<!--CHG Askew 20150326-->
+		<pulseonselect>true</pulseonselect>				<!--CHG was false Askew 20150402-->
+	</include>
+	<include name="HomeSubMenuCommonValues">
+		<posx>20</posx>							<!--CHG was 0 20150116 -->
+                <posy>-105</posy>						<!--CHG was 0 20150116 -->
+                <width>1280</width>
+		<height>50</height>						<!--CHG 20150116 like 25 Askew was height=35-->
+		<width>300</width>						<!--ADD 20150116 REMOVE THIS IF ISSUES-->
+		<align>center</align>
+		<onup>9000</onup>
+		<ondown>9002</ondown>
+		<itemgap>0</itemgap>
+                <orientation>Horizontal</orientation>				<!--CHG Askew20150116-->
+                <animation effect="slide" start="0,0" end="0,0" delay="200" time="200" tween="quadratic" easing="out">Visible</animation><!--CHG Askew20150116-->
+                <animation effect="slide" start="20,-105" end="0,0" time="200" tween="quadratic" easing="out">Hidden</animation><!--CHG Askew20150116-->
+	</include>
+	<include name="ButtonInfoDialogsCommonValues">
+		<height>80</height><!--CHG height was 40 Askew20150116-->
+		<width>170</width>
+		<textoffsetx>20</textoffsetx>
+		<align>center</align>
+		<aligny>center</aligny>
+		<font>font12_title</font>
+		<texturefocus border="5">button-focus.png</texturefocus>
+		<texturenofocus border="5">button-nofocus.png</texturenofocus>
+		<pulseonselect>false</pulseonselect>
+	</include>
+	<include name="SideBladeLeft">
+		<animation effect="slide" start="0,0" end="250,0" time="400" tween="quadratic" easing="out" condition="ControlGroup(9000).HasFocus | Control.HasFocus(9001) | Control.HasFocus(8999)">Conditional</animation>
+		<animation effect="slide" start="0,0" end="-300,0" time="400" tween="quadratic" easing="out" condition="ControlGroup(9000).HasFocus | Control.HasFocus(9001)">WindowClose</animation>
+		<animation effect="slide" start="0,0" end="-50,0" time="300" tween="quadratic" easing="out" condition="![ControlGroup(9000).HasFocus | Control.HasFocus(9001)]">WindowClose</animation>
+		<animation effect="slide" start="-50,0" end="0,0" time="300" tween="quadratic" easing="out">WindowOpen</animation>
+		<control type="button" id="8999">
+			<description>Fake button for mouse control</description>
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>250</width>
+			<height>720</height>
+			<label>-</label>
+			<font>-</font>
+			<texturenofocus>-</texturenofocus>
+			<texturefocus>-</texturefocus>
+			<visible>true</visible>
+		</control>
+		<control type="button" id="9001">
+			<posx>250</posx>
+			<posy>260</posy>
+			<width>42</width>
+			<height>128</height>
+			<font>-</font>
+			<texturefocus>HasSub.png</texturefocus>
+			<texturenofocus>HasSub.png</texturenofocus>
+		</control>
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>260</width>
+			<height>720</height>
+			<texture border="0,0,10,0">MediaBladeSub.png</texture>
+		</control>
+		<control type="image">
+			<description>LOGO</description>
+			<posx>0</posx>
+			<posy>10</posy><!--CHG was 50 Askew 20150213 -->
+			<align>left</align>						<!--ADD Askew 20150319-->
+			<width>250</width>
+			<height>80</height>
+			<aspectratio>-</aspectratio>
+			<texture>lcars_logo_auth_sci_1.0.gif</texture>			<!--CHG  Askew20150319-->
+			<background>SubMenuBack-MiddleFO.png</background><!--ADD Askew20150118-->
+		</control>
+	</include>
+	<include name="MainWindowMouseButtons">
+		<control type="group">
+			<posx>120r</posx>
+			<posy>55r</posy>
+			<animation effect="fade" time="250" condition="Window.Previous(Home)">WindowOpen</animation>
+			<animation effect="fade" time="250" condition="Window.Next(Home)">WindowClose</animation>
+			<visible>system.getbool(input.enablemouse)</visible>
+			<control type="button">
+				<description>Back push button</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>45</width>
+				<height>45</height>
+				<label>1036</label>
+				<font>-</font>
+				<aligny>-</aligny>
+                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.picars/scripts/lcars_wav_aff.py)</onclick><!--Add Askew2015-->
+				<onclick>back</onclick>
+				<texturefocus border="5">lcars_floor_buttonFO.gif</texturefocus><!--CHG Askew 20150203-->
+				<texturenofocus border="5">floor_button.png</texturenofocus>
+				<onleft>50</onleft>
+				<onright>50</onright>
+				<onup>50</onup>
+				<ondown>50</ondown>
+			</control>
+			<control type="image">
+				<description>Back Icon</description>
+				<posx>5</posx>
+				<posy>5</posy>
+				<width>35</width>
+				<height>35</height>
+				<aspectratio>keep</aspectratio>
+				<texture>icon_back.png</texture>
+			</control>
+			<control type="button">
+				<description>Home push button</description>
+				<posx>55</posx>
+				<posy>0</posy>
+				<width>45</width>
+				<height>45</height>
+				<label>31003</label>
+				<font>-</font>
+				<aligny>-</aligny>
+                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.picars/scripts/lcars_wav_aff.py)</onclick><!--Add Askew2015-->
+				<onclick>ActivateWindow(home)</onclick>
+				<texturefocus border="5">lcars_floor_buttonFO.gif</texturefocus><!--CHG Askew 20150203-->
+				<texturenofocus border="5">floor_button.png</texturenofocus>
+				<onleft>50</onleft>
+				<onright>50</onright>
+				<onup>50</onup>
+				<ondown>50</ondown>
+			</control>
+			<control type="image">
+				<description>Home Icon</description>
+				<posx>60</posx>
+				<posy>5</posy>
+				<width>35</width>
+				<height>35</height>
+				<aspectratio>keep</aspectratio>
+				<texture>icon_home.png</texture>
+			</control>
+                        <control type="button"><!--ADD Askew20150122-->
+                            <description>Mute reset button</description><!--ADD Askew20150122-->
+                            <posx>100</posx><!--ADD Askew20150122-->
+                            <posy>0</posy><!--ADD Askew20150122-->
+                            <width>45</width><!--ADD Askew20150122-->
+                            <height>45</height><!--ADD Askew20150122-->
+                            <label>-</label><!--ADD Askew20150122-->
+                            <font>-</font><!--ADD Askew20150122-->
+                            <aligny>-</aligny><!--ADD Askew20150122-->
+                            <onclick>RunScript(/home/osmc/.kodi/addons/skin.picars/scripts/swat_home_unmute.py)</onclick><!--Add Askew20150122-->
+                            <texturefocus border="5">lcars_floor_buttonFO.gif</texturefocus><!--ADD Askew20150202-->
+                            <onleft>50</onleft><!--ADD Askew20150122-->
+                            <onright>50</onright><!--ADD Askew20150122-->
+                            <onup>50</onup><!--ADD Askew20150122-->
+                            <ondown>50</ondown><!--ADD Askew20150122-->
+                        </control><!--ADD Askew20150122-->
+                        <control type="image"><!--ADD Askew20150122-->
+                            <description>Mute Icon</description><!--ADD Askew20150122-->
+                            <posx>105</posx><!--ADD Askew20150122-->
+                            <posy>5</posy><!--ADD Askew20150122-->
+                            <width>35</width><!--ADD Askew20150122-->
+                            <height>35</height><!--ADD Askew20150122-->
+                            <aspectratio>keep</aspectratio><!--ADD Askew20150122-->
+                            <texture>icon-mute.png</texture><!--ADD Askew20150122-->
+                         </control><!--ADD Askew20150122-->
+		</control>
+	</include>
+	<include name="CommonNowPlaying">
+		<control type="group">
+			<visible>Player.HasMedia + !SubString(Window(videolibrary).Property(TvTunesIsAlive),TRUE)</visible>
+			<include>VisibleFadeEffect</include>
+			<animation effect="fade" time="250" condition="Window.Previous(Home)">WindowOpen</animation>
+			<animation effect="fade" time="250" condition="Window.Next(Home)">WindowClose</animation>
+			<control type="button">
+				<description>push button</description>
+				<posx>30</posx>
+				<posy>55r</posy>
+				<width>45</width>
+				<height>45</height>
+				<label>31003</label>
+				<font>-</font>
+				<aligny>-</aligny>
+                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.picars/scripts/lcars_wav_aff.py)</onclick><!--Add Askew2015-->
+				<onclick>ActivateWindow(PlayerControls)</onclick>
+				<texturefocus border="5">lcars_floor_buttonFO.gif</texturefocus><!--CHG Askew 20150203-->
+				<texturenofocus border="5">floor_button.png</texturenofocus>
+				<onleft>50</onleft>
+				<onright>50</onright>
+				<onup>50</onup>
+				<ondown>50</ondown>
+			</control>
+			<control type="image">
+				<description>Player Icon</description>
+				<posx>35</posx>
+				<posy>50r</posy>
+				<width>35</width>
+				<height>35</height>
+				<aspectratio>keep</aspectratio>
+				<texture>icon_player.png</texture>
+			</control>
+			<control type="label">
+				<posx>85</posx>
+				<posy>53r</posy>
+				<width>700</width>
+				<height>20</height>
+				<label>$INFO[MusicPlayer.Title]$INFO[VideoPlayer.Title] - ([COLOR=blue]$INFO[Player.Time] / $INFO[Player.Duration,][/COLOR])</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font12</font>
+				<textcolor>grey</textcolor>
+				<shadowcolor>black</shadowcolor>
+			</control>
+			<control type="label">
+				<posx>85</posx>
+				<posy>32r</posy>
+				<width>700</width>
+				<height>20</height>
+				<label>$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, - ]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font12</font>
+				<textcolor>grey</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<visible>Player.HasAudio</visible>
+			</control>
+			<control type="label">
+				<posx>85</posx>
+				<posy>30r</posy>
+				<width>700</width>
+				<height>20</height>
+				<label>$INFO[VideoPlayer.Studio]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font12</font>
+				<textcolor>grey</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<visible>Player.HasVideo + VideoPlayer.Content(Movies)</visible>
+			</control>
+			<control type="label">
+				<posx>85</posx>
+				<posy>30r</posy>
+				<width>700</width>
+				<height>20</height>
+				<label>$INFO[VideoPlayer.TVShowTitle]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font12</font>
+				<textcolor>grey</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<visible>Player.HasVideo + VideoPlayer.Content(Episodes)</visible>
+			</control>
+			<control type="label">
+				<posx>85</posx>
+				<posy>30r</posy>
+				<width>700</width>
+				<height>20</height>
+				<label>$INFO[VideoPlayer.Artist]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font12</font>
+				<textcolor>grey</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<visible>Player.HasVideo + VideoPlayer.Content(MusicVideos)</visible>
+			</control>
+			<control type="label">
+				<posx>85</posx>
+				<posy>30r</posy>
+				<width>700</width>
+				<height>20</height>
+				<label>$INFO[VideoPlayer.ChannelName]$INFO[VideoPlayer.ChannelNumber, - ([COLOR=blue],[/COLOR])]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font12</font>
+				<textcolor>grey</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<visible>Player.HasVideo + VideoPlayer.Content(LiveTV)</visible>
+			</control>
+		</control>
+	</include>
+	<include name="CommonPageCount">
+		<control type="group">
+			<animation effect="slide" start="0,0" end="-90,0" time="0" condition="system.getbool(input.enablemouse)">Conditional</animation>
+			<control type="label">
+				<description>Page Count Label</description>
+				<posx>40r</posx>
+				<posy>53r</posy>
+				<width>500</width>
+				<height>20</height>
+				<font>font12</font>
+				<textcolor>grey</textcolor>
+				<scroll>false</scroll>
+				<align>right</align>
+				<aligny>center</aligny>
+				<label>$INFO[Container.NumItems,([COLOR=blue],[/COLOR]) $LOCALIZE[31025]]$INFO[Container.CurrentPage, - $LOCALIZE[31024] ([COLOR=blue]]$INFO[Container.NumPages,/,[/COLOR])]</label>
+				<include>Window_OpenClose_Animation</include>
+			</control>
+			<control type="label">
+				<description>Container Duration Label</description>
+				<posx>40r</posx>
+				<posy>32r</posy>
+				<width>500</width>
+				<height>20</height>
+				<font>font12</font>
+				<textcolor>grey</textcolor>
+				<scroll>false</scroll>
+				<align>right</align>
+				<aligny>center</aligny>
+				<label>$INFO[Container.TotalTime,$LOCALIZE[31009] ([COLOR=blue],[/COLOR])]</label>
+				<include>Window_OpenClose_Animation</include>
+			</control>
+		</control>
+	</include>
+	<include name="SmallMusicInfo">
+		<control type="image">
+			<description>gradient</description>
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>500</width>
+			<height>165</height>
+			<colordiffuse>DDFFFFFF</colordiffuse>
+			<!--texture border="20">OverlayDialogBackground.png</texture-->		<!--CHG Askew 20150401-->
+			<texture border="20">lcz_base3.png</texture>			 	<!--CHG Askew 20150401-->
+		</control>
+		<control type="image">
+			<description>Cover image</description>
+			<posx>20</posx>
+			<posy>17</posy>
+			<width>130</width>
+			<height>130</height>
+			<texture>$INFO[MusicPlayer.Cover]</texture>
+		</control>
+		<control type="label">
+			<description>Artist label</description>
+			<posx>160</posx>
+			<posy>20</posy>
+			<height>30</height>
+			<width>325</width>
+			<label>$INFO[MusicPlayer.Artist]</label>
+			<align>left</align>
+			<aligny>center</aligny>
+			<font>font12_title</font>
+			<textcolor>grey2</textcolor>
+			<shadowcolor>black</shadowcolor>
+		</control>
+		<control type="fadelabel">
+			<description>Title label</description>
+			<posx>160</posx>
+			<posy>43</posy>
+			<height>30</height>
+			<width>325</width>
+			<label>$INFO[MusicPlayer.Title]</label>
+			<align>left</align>
+			<aligny>center</aligny>
+			<font>font13_title</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<scrollout>false</scrollout>
+			<pauseatend>2000</pauseatend>
+		</control>
+		<control type="label">
+			<description>Album Label</description>
+			<posx>160</posx>
+			<posy>70</posy>
+			<height>30</height>
+			<width>325</width>
+			<label>$INFO[MusicPlayer.Album]$INFO[musicplayer.discnumber, - $LOCALIZE[427]:]</label>
+			<align>left</align>
+			<aligny>center</aligny>
+			<font>font12</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+		</control>
+		<control type="label">
+			<description>Time Label</description>
+			<posx>160</posx>
+			<posy>95</posy>
+			<height>30</height>
+			<width>325</width>
+			<label>$INFO[MusicPlayer.Time]$INFO[MusicPlayer.Duration, / ]</label>
+			<align>left</align>
+			<aligny>center</aligny>
+			<font>font12</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+		</control>
+		<control type="label">
+			<description>Next Label</description>
+			<posx>485</posx>
+			<posy>120</posy>
+			<height>30</height>
+			<width>325</width>
+			<label>[COLOR=blue]$LOCALIZE[209] :[/COLOR] $INFO[MusicPlayer.offset(1).Title]</label>
+			<align>right</align>
+			<aligny>center</aligny>
+			<font>font12</font>
+			<textcolor>grey</textcolor>
+			<shadowcolor>black</shadowcolor>
+		</control>
+	</include>
+	<include name="SmallVideoInfo">
+		<control type="image">
+			<description>gradient</description>
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>500</width>
+			<height>165</height>
+			<colordiffuse>DDFFFFFF</colordiffuse>
+			<texture border="20">OverlayDialogBackground.png</texture>
+		</control>
+		<control type="image">
+			<description>Cover image</description>
+			<posx>20</posx>
+			<posy>17</posy>
+			<width>130</width>
+			<height>130</height>
+			<aspectratio>keep</aspectratio>
+			<texture>$INFO[VideoPlayer.cover]</texture>
+		</control>
+		<control type="label">
+			<description>Studio label</description>
+			<posx>160</posx>
+			<posy>20</posy>
+			<height>30</height>
+			<width>325</width>
+			<label>$INFO[VideoPlayer.Studio]</label>
+			<align>left</align>
+			<aligny>center</aligny>
+			<font>font12_title</font>
+			<textcolor>grey2</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<visible>!videoplayer.content(episodes) + !videoplayer.content(musicvideos)</visible>
+		</control>
+		<control type="label">
+			<description>TV Show Title label</description>
+			<posx>160</posx>
+			<posy>20</posy>
+			<height>30</height>
+			<width>325</width>
+			<label>$INFO[VideoPlayer.tvshowtitle]</label>
+			<align>left</align>
+			<aligny>center</aligny>
+			<font>font12_title</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<visible>videoplayer.content(episodes)</visible>
+		</control>
+		<control type="fadelabel">
+			<description>Music Video Artist label</description>
+			<posx>160</posx>
+			<posy>20</posy>
+			<height>30</height>
+			<width>325</width>
+			<label>$INFO[VideoPlayer.Artist]</label>
+			<align>left</align>
+			<aligny>center</aligny>
+			<font>font12_title</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<visible>videoplayer.content(musicvideos)</visible>
+			<scrollout>false</scrollout>
+			<pauseatend>2000</pauseatend>
+		</control>
+		<control type="fadelabel">
+			<description>Title label</description>
+			<posx>160</posx>
+			<posy>43</posy>
+			<height>30</height>
+			<width>325</width>
+			<label>$INFO[VideoPlayer.Title]</label>
+			<align>left</align>
+			<aligny>center</aligny>
+			<font>font13_title</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<scrollout>false</scrollout>
+			<pauseatend>2000</pauseatend>
+		</control>
+		<control type="label">
+			<description>Genre label</description>
+			<posx>160</posx>
+			<posy>70</posy>
+			<height>30</height>
+			<width>325</width>
+			<label>$INFO[VideoPlayer.Genre]</label>
+			<align>left</align>
+			<aligny>center</aligny>
+			<font>font12</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<visible>!videoplayer.content(episodes) + !videoplayer.content(musicvideos)</visible>
+		</control>
+		<control type="label">
+			<posx>160</posx>
+			<posy>70</posy>
+			<height>30</height>
+			<width>325</width>
+			<label>$INFO[VideoPlayer.Album]</label>
+			<align>left</align>
+			<aligny>center</aligny>
+			<font>font12</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<visible>videoplayer.content(musicvideos)</visible>
+		</control>
+		<control type="label">
+			<description>Season and Episode label</description>
+			<posx>160</posx>
+			<posy>70</posy>
+			<height>30</height>
+			<width>325</width>
+			<label>$LOCALIZE[20373] $INFO[VideoPlayer.Season] - $LOCALIZE[20359] $INFO[VideoPlayer.episode]</label>
+			<align>left</align>
+			<aligny>center</aligny>
+			<font>font12</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<visible>videoplayer.content(episodes)</visible>
+		</control>
+		<control type="label">
+			<description>Time Label</description>
+			<posx>160</posx>
+			<posy>95</posy>
+			<height>30</height>
+			<width>325</width>
+			<label>$INFO[VideoPlayer.Time]$INFO[VideoPlayer.Duration, / ]</label>
+			<align>left</align>
+			<aligny>center</aligny>
+			<font>font12</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+		</control>
+	</include>
+	<include name="CommonNowPlaying_Controls">
+		<control type="label" id="202">
+			<width>250</width>
+			<height>35</height>
+			<font>font12</font>
+			<label>31023</label>
+			<textcolor>blue</textcolor>
+			<align>center</align>
+			<aligny>center</aligny>
+			<visible>[Player.HasAudio | Player.HasVideo]</visible>
+			<include>VisibleFadeEffect</include>
+		</control>
+		<control type="button" id="610">
+			<description>Fake Button to fix Player Controls Navigation</description>
+			<visible>false</visible>
+		</control>
+		<control type="group" id="9006">
+			<width>250</width>
+			<height>45</height>
+			<visible>VideoPlayer.Content(LiveTV)</visible>
+			<include>VisibleFadeEffect</include>
+			<control type="button" id="600">
+				<posx>20</posx>
+				<posy>2</posy>
+				<width>39</width>
+				<height>39</height>
+				<label>-</label>
+				<texturefocus>OSDChannelUPFO.png</texturefocus>
+				<texturenofocus>OSDChannelUPNF.png</texturenofocus>
+				<onleft>50</onleft>
+				<onright>601</onright>
+				<onup>610</onup>
+				<ondown>611</ondown>
+                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.picars/scripts/lcars_wav_aff.py)</onclick><!--Add Askew2015-->
+				<onclick>XBMC.PlayerControl(Previous)</onclick>
+			</control>
+			<control type="button" id="601">
+				<posx>60</posx>
+				<posy>2</posy>
+				<width>39</width>
+				<height>39</height>
+				<label>-</label>
+				<texturefocus>OSDChannelDownFO.png</texturefocus>
+				<texturenofocus>OSDChannelDownNF.png</texturenofocus>
+				<onleft>600</onleft>
+				<onright>603</onright>
+				<onup>610</onup>
+				<ondown>611</ondown>
+                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.picars/scripts/lcars_wav_aff.py)</onclick><!--Add Askew2015-->
+				<onclick>XBMC.PlayerControl(Next)</onclick>
+			</control>
+			<control type="button" id="603">
+				<posx>100</posx>
+				<posy>2</posy>
+				<width>39</width>
+				<height>39</height>
+				<label>-</label>
+				<texturefocus>OSDStopFO.png</texturefocus>
+				<texturenofocus>OSDStopNF.png</texturenofocus>
+				<onleft>601</onleft>
+				<onright>604</onright>
+				<onup>610</onup>
+				<ondown>611</ondown>
+                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.picars/scripts/lcars_wav_aff.py)</onclick><!--Add Askew2015-->
+				<onclick>down</onclick>
+				<onclick>XBMC.PlayerControl(Stop)</onclick>
+			</control>
+			<control type="togglebutton" id="604">
+				<posx>140</posx>
+				<posy>2</posy>
+				<width>39</width>
+				<height>39</height>
+				<label>-</label>
+				<texturefocus>OSDPauseFO.png</texturefocus>
+				<texturenofocus>OSDPauseNF.png</texturenofocus>
+				<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+				<alttexturefocus>OSDPlayFO.png</alttexturefocus>
+				<alttexturenofocus>OSDPlayNF.png</alttexturenofocus>
+				<onleft>603</onleft>
+				<onright>605</onright>
+				<onup>610</onup>
+				<ondown>606</ondown>
+				<onback>50</onback>
+                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.picars/scripts/lcars_wav_aff.py)</onclick><!--Add Askew2015-->
+				<onclick>XBMC.PlayerControl(Play)</onclick>
+				<enable>Player.PauseEnabled</enable>
+				<animation effect="fade" start="100" end="30" time="100" condition="!Player.PauseEnabled">Conditional</animation>
+			</control>
+			<control type="button" id="605">
+				<posx>180</posx>
+				<posy>2</posy>
+				<width>39</width>
+				<height>39</height>
+				<label>-</label>
+				<texturefocus>OSDRecordOffFO.png</texturefocus>
+				<texturenofocus>OSDRecordOffNF.png</texturenofocus>
+				<onleft>604</onleft>
+				<onright>50</onright>
+				<onup>610</onup>
+				<ondown>611</ondown>
+                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.picars/scripts/lcars_wav_aff.py)</onclick><!--Add Askew2015-->
+				<onclick>XBMC.PlayerControl(record)</onclick>
+				<enable>Player.CanRecord</enable>
+				<animation effect="fade" start="100" end="30" time="100" condition="!Player.CanRecord">Conditional</animation>
+			</control>
+		</control>
+		<control type="group" id="9005">
+			<visible>[Player.HasAudio | Player.HasVideo]</visible>
+			<visible>!VideoPlayer.Content(LiveTV)</visible>
+			<include>VisibleFadeEffect</include>
+			<width>250</width>
+			<height>45</height>
+			<defaultcontrol always="true">603</defaultcontrol>
+			<control type="button" id="600">
+				<posx>5</posx>
+				<posy>2</posy>
+				<width>39</width>
+				<height>39</height>
+				<label>-</label>
+				<texturefocus>OSDPrevTrackFO.png</texturefocus>
+				<texturenofocus>OSDPrevTrackNF.png</texturenofocus>
+				<onleft>50</onleft>
+				<onright>606</onright>
+				<onup>610</onup>
+				<ondown>611</ondown>
+				<onback>50</onback>
+                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.picars/scripts/lcars_wav_aff.py)</onclick><!--Add Askew2015-->
+				<onclick>XBMC.PlayerControl(Previous)</onclick>
+			</control>
+			<control type="button" id="606">
+				<posx>45</posx>
+				<posy>2</posy>
+				<width>39</width>
+				<height>39</height>
+				<label>-</label>
+				<texturefocus>OSDRewindFO.png</texturefocus>
+				<texturenofocus>OSDRewindNF.png</texturenofocus>
+				<onleft>600</onleft>
+				<onright>603</onright>
+				<onup>610</onup>
+				<ondown>611</ondown>
+				<onback>50</onback>
+                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.picars/scripts/lcars_wav_aff.py)</onclick><!--Add Askew2015-->
+				<onclick>XBMC.PlayerControl(Rewind)</onclick>
+				<visible>Window.IsVisible(MusicPlaylist) | Window.IsVisible(VideoPlaylist) | Player.HasVideo</visible>
+			</control>
+			<control type="group">
+				<animation effect="slide" start="0,0" end="40,0" time="0" condition="Window.IsVisible(MusicPlaylist) | Window.IsVisible(VideoPlaylist) | Player.HasVideo">Conditional</animation>
+				<control type="togglebutton" id="603">
+					<posx>45</posx>
+					<posy>2</posy>
+					<width>39</width>
+					<height>39</height>
+					<label>-</label>
+					<texturefocus>OSDPauseFO.png</texturefocus>
+					<texturenofocus>OSDPauseNF.png</texturenofocus>
+					<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+					<alttexturefocus>OSDPlayFO.png</alttexturefocus>
+					<alttexturenofocus>OSDPlayNF.png</alttexturenofocus>
+					<onleft>606</onleft>
+					<onright>601</onright>
+					<onup>610</onup>
+					<ondown>611</ondown>
+					<onback>50</onback>
+                                        <onclick>RunScript(/home/osmc/.kodi/addons/skin.picars/scripts/lcars_wav_aff.py)</onclick><!--Add Askew2015-->
+					<onclick>XBMC.PlayerControl(Play)</onclick>
+				</control>
+				<control type="button" id="601">
+					<posx>85</posx>
+					<posy>2</posy>
+					<width>39</width>
+					<height>39</height>
+					<label>-</label>
+					<texturefocus>OSDStopFO.png</texturefocus>
+					<texturenofocus>OSDStopNF.png</texturenofocus>
+					<onleft>603</onleft>
+					<onright>607</onright>
+					<onup>610</onup>
+					<ondown>611</ondown>
+					<onback>50</onback>
+                                        <onclick>RunScript(/home/osmc/.kodi/addons/skin.picars/scripts/lcars_wav_aff.py)</onclick><!--Add Askew2015-->
+					<onclick>down</onclick>
+					<onclick>XBMC.PlayerControl(Stop)</onclick>
+				</control>
+				<control type="button" id="607">
+					<posx>125</posx>
+					<posy>2</posy>
+					<width>39</width>
+					<height>39</height>
+					<label>-</label>
+					<texturefocus>OSDForwardFO.png</texturefocus>
+					<texturenofocus>OSDForwardNF.png</texturenofocus>
+					<onleft>601</onleft>
+					<onright>602</onright>
+					<onup>610</onup>
+					<ondown>611</ondown>
+					<onback>50</onback>
+                                        <onclick>RunScript(/home/osmc/.kodi/addons/skin.picars/scripts/lcars_wav_aff.py)</onclick><!--Add Askew2015-->
+					<onclick>XBMC.PlayerControl(Forward)</onclick>
+					<visible>Window.IsVisible(MusicPlaylist) | Window.IsVisible(VideoPlaylist) | Player.HasVideo</visible>
+				</control>
+				<control type="button" id="602">
+					<posx>125</posx>
+					<posy>2</posy>
+					<width>39</width>
+					<height>39</height>
+					<label>-</label>
+					<texturefocus>OSDNextTrackFO.png</texturefocus>
+					<texturenofocus>OSDNextTrackNF.png</texturenofocus>
+					<onleft>607</onleft>
+					<onright>604</onright>
+					<onup>610</onup>
+					<ondown>611</ondown>
+					<onback>50</onback>
+                                        <onclick>RunScript(/home/osmc/.kodi/addons/skin.picars/scripts/lcars_wav_aff.py)</onclick><!--Add Askew2015-->
+					<onclick>XBMC.PlayerControl(Next)</onclick>
+					<animation effect="slide" start="0,0" end="40,0" time="0" condition="Window.IsVisible(MusicPlaylist) | Window.IsVisible(VideoPlaylist) | Player.HasVideo">Conditional</animation>
+				</control>
+			</control>
+			<control type="group">
+				<visible>!Window.IsVisible(MusicPlaylist) + !Window.IsVisible(VideoPlaylist) + !Player.HasVideo</visible>
+				<control type="button" id="604">
+					<posx>165</posx>
+					<posy>2</posy>
+					<width>39</width>
+					<height>39</height>
+					<label>-</label>
+					<texturefocus>-</texturefocus>
+					<texturenofocus>-</texturenofocus>
+                                        <onclick>RunScript(/home/osmc/.kodi/addons/skin.picars/scripts/lcars_wav_aff.py)</onclick><!--Add Askew2015-->
+					<onclick>XBMC.PlayerControl(Repeat)</onclick>
+					<onleft>602</onleft>
+					<onright>605</onright>
+					<onup>610</onup>
+					<ondown>611</ondown>
+					<onback>50</onback>
+				</control>
+				<control type="image">
+					<posx>165</posx>
+					<posy>2</posy>
+					<width>39</width>
+					<height>39</height>
+					<texture>OSDRepeatNF.png</texture>
+					<visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
+					<visible>!Control.HasFocus(604)</visible>
+				</control>
+				<control type="image">
+					<posx>165</posx>
+					<posy>2</posy>
+					<width>39</width>
+					<height>39</height>
+					<texture>OSDRepeatFO.png</texture>
+					<visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
+					<visible>Control.HasFocus(604)</visible>
+				</control>
+				<control type="image">
+					<posx>165</posx>
+					<posy>2</posy>
+					<width>39</width>
+					<height>39</height>
+					<texture>OSDRepeatOneNF.png</texture>
+					<visible>Playlist.IsRepeatOne</visible>
+					<visible>!Control.HasFocus(604)</visible>
+				</control>
+				<control type="image">
+					<posx>165</posx>
+					<posy>2</posy>
+					<width>39</width>
+					<height>39</height>
+					<texture>OSDRepeatOneFO.png</texture>
+					<visible>Playlist.IsRepeatOne</visible>
+					<visible>Control.HasFocus(604)</visible>
+				</control>
+				<control type="image">
+					<posx>165</posx>
+					<posy>2</posy>
+					<width>39</width>
+					<height>39</height>
+					<texture>OSDRepeatAllNF.png</texture>
+					<visible>Playlist.IsRepeat</visible>
+					<visible>!Control.HasFocus(604)</visible>
+				</control>
+				<control type="image">
+					<posx>165</posx>
+					<posy>2</posy>
+					<width>39</width>
+					<height>39</height>
+					<texture>OSDRepeatAllFO.png</texture>
+					<visible>Playlist.IsRepeat</visible>
+					<visible>Control.HasFocus(604)</visible>
+				</control>
+				<control type="togglebutton" id="605">
+					<posx>205</posx>
+					<posy>2</posy>
+					<width>39</width>
+					<height>39</height>
+					<label>-</label>
+					<texturefocus>OSDRandomOffFO.png</texturefocus>
+					<texturenofocus>OSDRandomOffNF.png</texturenofocus>
+					<usealttexture>Playlist.IsRandom</usealttexture>
+					<alttexturefocus>OSDRandomOnFO.png</alttexturefocus>
+					<alttexturenofocus>OSDRandomOnNF.png</alttexturenofocus>
+                                        <onclick>RunScript(/home/osmc/.kodi/addons/skin.picars/scripts/lcars_wav_aff.py)</onclick><!--Add Askew2015-->
+					<onclick>XBMC.PlayerControl(Random)</onclick>
+					<onleft>604</onleft>
+					<onright>50</onright>
+					<onup>610</onup>
+					<ondown>611</ondown>
+					<onback>50</onback>
+				</control>
+			</control>
+		</control>
+		<control type="radiobutton" id="611">
+			<description>Go to fullscreen Playback</description>
+			<include>ButtonCommonValues</include>
+			<label>31008</label>
+                        <onclick>RunScript(/home/osmc/.kodi/addons/skin.picars/scripts/lcars_wav_aff.py)</onclick><!--Add Askew2015-->
+			<onclick>fullscreen</onclick>
+			<textureradiofocus>GoFullscreen.png</textureradiofocus>
+			<textureradionofocus>GoFullscreen.png</textureradionofocus>
+			<visible>Player.HasMedia</visible>
+		</control>
+	</include>
+	<include name="ScrollOffsetLabel">
+		<control type="group">
+			<visible>Container.Scrolling + [StringCompare(Container.SortMethod,$LOCALIZE[551]) | StringCompare(Container.SortMethod,$LOCALIZE[561]) | StringCompare(Container.SortMethod,$LOCALIZE[558]) | StringCompare(Container.SortMethod,$LOCALIZE[557]) | StringCompare(Container.SortMethod,$LOCALIZE[556])]</visible>
+			<animation effect="slide" start="0,0" end="0,-60" time="100">Visible</animation>
+			<animation effect="slide" start="0,-60" end="0,0" delay="400" time="100">Hidden</animation>
+			<posx>300r</posx>
+			<posy>720</posy>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>70</width>
+				<height>65</height>
+				<texture border="20,20,20,2">InfoMessagePanel.png</texture>
+			</control>
+			<control type="label">
+				<posx>5</posx>
+				<posy>0</posy>
+				<width>65</width>
+				<height>60</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.SortLetter]</label>
+				<textcolor>white</textcolor>
+				<font>font30_title</font>
+			</control>
+		</control>
+	</include>
+        <include name="Rcars_usedspace">                                <!--CHG Askew 20150412-->
+                 <control type="progress">                              <!--CHG Askew 20150412-->
+                        <description>USED SPACE BAR</description>       <!--CHG Askew 20150412-->
+                        <posx>330</posx>                                <!--CHG Askew 20150412-->
+                        <posy>350</posy>                                <!--CHG Askew 20150412-->
+                        <width>250</width>                              <!--CHG Askew 20150412-->
+                        <height>16</height>                             <!--CHG Askew 20150412-->
+                        <colordiffuse>lcars_deep_blue</colordiffuse>   	<!--CHG Askew 20150412-->
+                        <info>System.UsedSpace</info>              	<!--CHG Askew 20150412-->
+                </control>                                              <!--CHG Askew 20150412-->
+        </include>                                                      <!--CHG Askew 20150412-->
+        <include name="Rcars_totalspace">                               <!--CHG Askew 20150412-->
+                 <control type="progress">                              <!--CHG Askew 20150412-->
+                        <description>TOTAL SPACE BAR</description>      <!--CHG Askew 20150412-->
+                        <posx>330</posx>                                <!--CHG Askew 20150412-->
+                        <posy>290</posy>                                <!--CHG Askew 20150412-->
+                        <width>250</width>                              <!--CHG Askew 20150412-->
+                        <height>16</height>                             <!--CHG Askew 20150412-->
+                        <colordiffuse>lcars_yellow</colordiffuse>   	<!--CHG Askew 20150412-->
+                        <info>System.TotalSpace</info>              	<!--CHG Askew 20150412-->
+                </control>                                              <!--CHG Askew 20150412-->
+        </include>                                                      <!--CHG Askew 20150412-->
+        <include name="Rcars_freespace">                                <!--CHG Askew 20150412-->
+                 <control type="progress">                              <!--CHG Askew 20150412-->
+                        <description>FREESPACE BAR</description>        <!--CHG Askew 20150412-->
+                        <posx>330</posx>                                <!--CHG Askew 20150415-->
+                        <posy>330</posy>                                <!--CHG Askew 20150415-->
+                        <width>250</width>                              <!--CHG Askew 20150412-->
+                        <height>16</height>                             <!--CHG Askew 20150412-->
+                        <colordiffuse>lcars_true_blue</colordiffuse>    <!--CHG Askew 20150412-->
+                        <info>System.FreeSpace</info>              	<!--CHG Askew 20150412-->
+                </control>                                              <!--CHG Askew 20150412-->
+        </include>                                                      <!--CHG Askew 20150412-->
+        <include name="Rcars_sys1">             
+                <control type="label">          
+                        <description>System CPU Freq</description>
+                        <posx>625</posx>        			<!--CHG Askew 20150411-->			
+                        <posy>95</posy>         			<!--CHG Askew 20150411-->
+                        <width>250</width>      			<!--CHG was 400 Askew 20150222-->
+                        <height>72</height>     
+                        <align>left</align>     
+                        <aligny>bottom</aligny> 
+                        <font>font10_title</font>
+                        <textcolor>lcars_orange</textcolor>
+			<shadowcolor>-</shadowcolor>		<!--CHG  Askew 20150222-->
+                        <label fallback="31000">[COLOR=green][B]Di-L[/B]ithium[/COLOR]    [COLOR=lcars_beige]FREQ.[/COLOR]    [COLOR=lcars_orange]$INFO[System.CpuFrequency][/COLOR]</label>
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible><!--ADD Askew 20150216-->
+		</control>                      
+	</include>
+       <include name="Rcars_sys_temp">
+                <control type="label">          
+                        <description>System CPU Temp</description>
+                        <posx>625</posx>                                <!--CHG Askew 20150411--> 
+                        <posy>115</posy>                                 <!--CHG Askew 20150411-->
+                        <width>150</width>      
+                        <height>72</height>     
+                        <align>left</align>     
+                        <aligny>bottom</aligny> 
+                        <font>font10_title</font>                       <!--CHG  Askew 20150222-->
+                        <textcolor>green</textcolor>
+                        <shadowcolor>-</shadowcolor>           <!--CHG Askew 20150222-->
+                        <label fallback="31000">[COLOR=lcars_beige][B]W[/B]arp Core[/COLOR]     [COLOR=red]TEMP.[/COLOR]    [COLOR=lcars_orange]$INFO[System.CPUTemperature][/COLOR]</label><!--CHG Askew 20150222-->
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible><!--ADD Askew 20150216-->
+                </control>                      
+	</include>                              
+           <include name="Rcars_core0">          
+                <control type="label">          
+                        <description>System CPU Usage</description>
+                        <posx>892</posx>        		 	<!--CHG was 611 Askew 20150411-->	
+                        <posy>142</posy>         			<!-- CHG was 184 Askew 20150411-->
+                        <width>500</width>      
+                        <height>72</height>     
+                        <align>left</align>     
+                        <aligny>center</aligny> 
+                        <font>font13_title_plus</font>			<!--CHG Askew 20150411-->
+                        <aspect>1.25</aspect>				<!--ADD Askew 20150411-->
+                        <linespacing>1.25</linespacing>			<!--ADD Askew 20150411-->
+                        <textcolor>lcars_orange</textcolor>		<!--CHG was lcars_med_grey Askew 20150411-->
+                        <shadowcolor></shadowcolor>			<!--CHG Askew 20150304-->
+                        <label>CPU[COLOR=picars_purple]0[/COLOR]    $INFO[System.CoreUsage(0)]</label>
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible><!--ADD Askew 20150216-->
+                </control>                      
+        </include>                              
+           <include name="Rcars_core1">					<!--CHG Askew 20150412-->
+                <control type="label">					<!--CHG Askew 20150412-->
+                        <description>System CPU Usage</description>	<!--CHG Askew 20150412-->
+                        <posx>892</posx>                                <!--CHG Askew 20150412-->
+                        <posy>166</posy>                                <!--CHG Askew 20150412-->
+                        <width>500</width>				<!--CHG Askew 20150412-->
+                        <height>72</height>				<!--CHG Askew 20150412-->
+                        <align>left</align>				<!--CHG Askew 20150412-->
+                        <aligny>center</aligny>				<!--CHG Askew 20150412-->
+                        <font>font13_title_plus</font>                  <!--CHG Askew 20150412-->
+                        <aspect>1.25</aspect>                           <!--ADD Askew 20150412-->
+                        <linespacing>1.25</linespacing>                 <!--ADD Askew 20150412-->
+                        <textcolor>lcars_orange</textcolor>             <!--CHG Askew 20150412--> 
+                        <shadowcolor></shadowcolor>             	<!--CHG Askew 20150412-->
+                        <label>CPU[COLOR=picars_purple]1[/COLOR]    $INFO[System.CoreUsage(1)]</label>	<!--CHG Askew 20150412-->
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible><!--CHG Askew 20150412-->
+                </control>						<!--CHG Askew 20150412-->
+        </include>							<!--CHG Askew 20150412-->
+           <include name="Rcars_core2">                                 <!--CHG Askew 20150412-->
+                <control type="label">                                  <!--CHG Askew 20150412-->
+                        <description>System CPU Usage</description>     <!--CHG Askew 20150412-->
+                        <posx>892</posx>                                <!--CHG Askew 20150412-->
+                        <posy>188</posy>                                <!--CHG Askew 20150412-->
+                        <width>500</width>                              <!--CHG Askew 20150412-->
+                        <height>72</height>                             <!--CHG Askew 20150412-->
+                        <align>left</align>                             <!--CHG Askew 20150412-->
+                        <aligny>center</aligny>                         <!--CHG Askew 20150412-->
+                        <font>font13_title_plus</font>                  <!--CHG Askew 20150412-->
+                        <aspect>1.25</aspect>                           <!--ADD Askew 20150412-->
+                        <linespacing>1.25</linespacing>                 <!--ADD Askew 20150412-->
+                        <textcolor>lcars_orange</textcolor>             <!--CHG Askew 20150412-->
+                        <shadowcolor></shadowcolor>                     <!--CHG Askew 20150412-->
+                        <label>CPU[COLOR=picars_purple]2[/COLOR]    $INFO[System.CoreUsage(2)]</label>       <!--CHG Askew 20150412-->
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible><!--CHG Askew 20150412-->
+                </control>                                              <!--CHG Askew 20150412-->
+        </include>                                                      <!--CHG Askew 20150412-->
+           <include name="Rcars_core3">                                 <!--CHG Askew 20150412-->
+                <control type="label">                                  <!--CHG Askew 20150412-->
+                        <description>System CPU Usage</description>     <!--CHG Askew 20150412-->
+                        <posx>892</posx>                                <!--CHG Askew 20150412-->
+                        <posy>210</posy>                                <!--CHG Askew 20150412-->
+                        <width>500</width>                              <!--CHG Askew 20150412-->
+                        <height>72</height>                             <!--CHG Askew 20150412-->
+                        <align>left</align>                             <!--CHG Askew 20150412-->
+                        <aligny>center</aligny>                         <!--CHG Askew 20150412-->
+                        <font>font13_title_plus</font>                  <!--CHG Askew 20150412-->
+                        <aspect>1.25</aspect>                           <!--ADD Askew 20150412-->
+                        <linespacing>1.25</linespacing>                 <!--ADD Askew 20150412-->
+                        <textcolor>lcars_orange</textcolor>             <!--CHG Askew 20150412-->
+                        <shadowcolor></shadowcolor>                     <!--CHG Askew 20150412-->
+                        <label>CPU[COLOR=picars_purple]3[/COLOR]    $INFO[System.CoreUsage(3)]</label>       <!--CHG Askew 20150412-->
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible><!--CHG Askew 20150412-->
+                </control>                                              <!--CHG Askew 20150412-->
+        </include>                                                      <!--CHG Askew 20150412-->
+	<include name="Rcars_sys3">					<!--ADD Askew 20150322-->
+               <control type="progress">				<!--ADD Askew 20150322-->
+                        <description>CPU BAR</description>		<!--ADD Askew 20150322-->
+                        <posx>788</posx>				<!--CHG was 620  Askew 20150411-->
+                        <posy>92</posy>					<!--CHG Askew 20150411-->
+                        <width>340</width>				<!--CHG was 320 Askew 20150411-->
+                        <height>50</height>				<!--ADD Askew 20150322-->
+			<colordiffuse>FFFF00FF</colordiffuse>		<!--ADD Askew 20150322-->
+                        <info>System.CPUUsage</info>			<!--ADD Askew 20150322-->
+                         <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible><!--ADD Askew 20150327-->
+               </control>						<!--ADD Askew 20150322-->
+        </include>                              			<!--ADD Askew 20150322-->
+        <include name="Rcars_free_mem_num">				<!--CHG Askew 20150412-->
+                <control type="label">					<!--CHG Askew 20150412-->
+                        <description>System FREE Memory Size</description><!--CHG Askew 20150412-->
+                        <posx>623</posx>                                <!--CHG Askew 20150412-->
+                        <posy>248</posy>                                <!--CHG Askew 20150412-->
+                        <width>200</width>                              <!--CHG Askew 20150412-->
+                        <height>72</height>				<!--CHG Askew 20150412-->
+                        <align>left</align>				<!--CHG Askew 20150412-->
+                        <aligny>bottom</aligny>				<!--CHG Askew 20150412-->
+                        <font>font10_title</font>			<!--CHG Askew 20150412-->
+                        <textcolor>white</textcolor>			<!--CHG Askew 20150412-->
+                        <shadowcolor>-</shadowcolor>			<!--CHG Askew 20150412-->
+                        <label>[COLOR=lcars_yellow]Mem. Bank[/COLOR]  [COLOR=lcars_true_blue]FREE[/COLOR] $INFO[System.FreeMemory]</label><!--CHG Askew 20150412-->
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible><!--CHG Askew 20150412-->
+                </control>						<!--CHG Askew 20150412-->
+        </include>							<!--CHG Askew 20150412-->
+        <include name="Rcars_free_mem">                                 <!--CHG Askew 20150412-->
+                 <control type="progress">                              <!--CHG Askew 20150412-->
+                        <description>FREE MEM Bank BAR</description>    <!--CHG Askew 20150412-->
+                        <posx>683</posx>                                <!--CHG Askew 20150412-->
+                        <posy>234</posy>                                <!--CHG Askew 20150412-->
+                        <width>200</width>                              <!--CHG Askew 20150412-->
+                        <height>18</height>                             <!--CHG Askew 20150412-->
+                        <colordiffuse>lcars_true_blue</colordiffuse>   <!--ADD Askew 20150412-->
+                        <info>System.FreeMemory</info>                  <!--CHG Askew 20150412-->
+                </control>                                              <!--CHG Askew 20150412-->
+        </include>                                                      <!--CHG Askew 20150412-->
+        <include name="Rcars_used_mem_num">                             <!--CHG Askew 20150412-->
+                <control type="label">                                  <!--CHG Askew 20150412-->
+                        <description>System Used Memory Size</description><!--CHG Askew 20150412-->
+                        <posx>623</posx>                                <!--CHG Askew 20150412-->
+                        <posy>196</posy>                                <!--CHG Askew 20150412-->
+                        <width>200</width>                              <!--CHG Askew 20150412-->
+                        <height>72</height>                             <!--CHG Askew 20150412-->
+                        <align>left</align>                             <!--CHG Askew 20150412-->
+                        <aligny>bottom</aligny>                         <!--CHG Askew 20150412-->
+                        <font>font10_title</font>                       <!--CHG Askew 20150412-->
+                        <textcolor>white</textcolor>                    <!--CHG Askew 20150412-->
+                        <shadowcolor>-</shadowcolor>                    <!--CHG Askew 20150412-->
+                        <label>[COLOR=lcars_yellow]Mem. Bank[/COLOR]  [COLOR=red]USED[/COLOR] $INFO[System.Memory(used)]</label><!--CHG Askew 20150412-->
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible><!--CHG Askew 20150412-->
+                </control>                                              <!--CHG Askew 20150412-->
+        </include>                                                      <!--CHG Askew 20150412-->
+        <include name="Rcars_used_mem"> 	                        <!--CHG Askew 20150412-->
+                 <control type="progress">                              <!--CHG Askew 20150412-->
+                        <description>MEMORY USED BAR</description>      <!--CHG Askew 20150412-->
+                        <posx>683</posx>                                <!--CHG Askew 20150412-->
+                        <posy>213</posy>                                <!--CHG Askew 20150412-->
+                        <width>200</width>                              <!--CHG Askew 20150412-->
+                        <height>18</height>                             <!--CHG Askew 20150412-->
+                        <colordiffuse>red</colordiffuse>   		<!--CHG Askew 20150412-->
+                        <info>system.memory(used)</info>                <!--CHG Askew 20150412-->
+                </control>                                              <!--CHG Askew 20150412-->
+        </include>                                                      <!--CHG Askew 20150412-->
+        <include name="Rcars_sys4">             
+                <control type="label">          
+                        <description>System Memory Used Percent</description>
+                        <posx>892</posx>        		 	<!--CHG Askew 20150411-->	
+                        <posy>254</posy>        			<!--CHG Askew 20150411-->
+                        <width>200</width> 				<!--CHG was 150 Askew 20150316-->     
+                        <height>72</height>     
+                        <align>left</align>     
+                        <aligny>bottom</aligny> 
+                        <font>font12_title</font>
+                        <textcolor>white</textcolor>
+                        <shadowcolor>-</shadowcolor>
+                        <label fallback="31000">%USED     $INFO[System.Memory(used.percent)]</label>
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible><!--ADD Askew 20150216-->
+                </control>                      
+  	</include>                              
+   <include name="Rcars_sys5">                  
+                <control type="label">          
+                        <description>System Memory Free Percent</description>
+                        <posx>892</posx>        			<!--CHG Askew 20150411-->	
+                        <posy>280</posy>       				<!--CHG Askew 20150411--> 
+                        <width>150</width>      
+                        <height>72</height>     
+                        <align>left</align>     
+                        <aligny>bottom</aligny> 
+                        <font>font12_title</font>
+                        <textcolor>white</textcolor>
+                        <shadowcolor>-</shadowcolor>
+                        <label fallback="31000">%FREE      $INFO[System.Memory(free.percent)]</label>
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible><!--ADD Askew 20150216-->
+                </control>                      
+  </include>                                    
+   <include name="Rcars_sys_tot_mem">                  
+                <control type="label">          
+                        <description>System Memory Total</description>
+                        <posx>893</posx>				<!--CHG Askew 20150411-->        			
+                        <posy>280</posy>       				<!--CHG Askew 20150411--> 
+                        <width>140</width>      
+                        <height>72</height>     
+                        <align>left</align>     
+                        <aligny>bottom</aligny> 
+                        <font>font12_title</font>
+                        <textcolor>white</textcolor>
+                        <shadowcolor>-</shadowcolor>
+                        <label>[COLOR=lcars_true_blue]MEMORY[/COLOR]   $INFO[System.Memory(total)]</label>
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible><!--ADD Askew 20150216-->
+                </control>                      
+  </include>                                    
+   <include name="Rcars_IP">                  
+                <control type="label">          
+                        <description>Network IP</description>
+                        <posx>325</posx>				<!--CHG Askew 20150415--> 
+                        <posy>40</posy>        				<!--CHG Askew 20150415-->
+                        <width>300</width>              <!--CHG was 200 Askew 20150215-->
+                        <height>72</height>     
+                        <align>left</align>     
+                        <aligny>center</aligny> 
+                        <font>font13_title</font>			<!--CHG Askew 20150306-->
+                        <textcolor>FFFFFFFF</textcolor>			<!--CHG Askew 20150415-->
+                        <shadowcolor>-</shadowcolor>
+                        <label>[COLOR=red][B]FLEET[/B] [/COLOR]    $INFO[Network.IPAddress]</label>
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible><!--ADD Askew 20150216-->
+                </control>                      
+  </include>                                    
+   <include name="Rcars_sys8">                  <!--ADD Askew 20150208-->
+                <control type="label">          <!--ADD Askew 20150208-->
+                        <description>System Host Name</description><!--ADD Askew 20150208-->
+                        <posx>318</posx>				<!--CHG was 685 was 552 Askew 20150308-->
+                        <posy>90</posy>       				<!--CHG was 124 was 270 Askew 20150308-->
+                        <width>300</width>              		<!--CHG was 400 was 200 Askew 20150222-->
+                        <height>100</height>   				<!--CHG was 72 Askew 20150308-->
+                        <align>left</align>     <!--ADD Askew 20150208-->
+                        <aligny>center</aligny> <!--ADD Askew 20150208-->
+                        <font>font_MainMenu</font><!--ADD Askew 20150208-->
+                        <textcolor>red</textcolor><!--ADD Askew 20150208-->
+                        <shadowcolor>-</shadowcolor><!--ADD Askew 20150208-->
+                        <label fallback="31000">$INFO[System.FriendlyName]</label><!--ADD Askew 20150208-->
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible><!--ADD Askew 20150216-->
+                </control>                      <!--ADD Askew 20150208-->
+  </include>                                    <!--ADD Askew 20150208-->
+   <include name="Rcars_sys9">                  <!--ADD Askew 20150208-->
+                <control type="label">          <!--ADD Askew 20150208-->
+                        <description>Network Link State</description><!--ADD Askew 20150208-->
+                        <posx>325</posx>				<!--CHG Askew 20150415-->       			
+                        <posy>20</posy>        				<!--CHG Askew 20150415-->
+                        <width>200</width>      <!--ADD Askew 20150208-->
+                        <height>72</height>     <!--ADD Askew 20150208-->
+                        <align>left</align>     <!--ADD Askew 20150208-->
+                        <aligny>center</aligny> <!--ADD Askew 20150208-->
+                        <font>font13_title</font>			<!--CHG Askew 20150306-->
+                        <textcolor>FFFFFFFF</textcolor>			<!--CHG Askew 20150415-->
+                        <shadowcolor>-</shadowcolor><!--ADD Askew 20150208-->
+                        <label>[COLOR=red][B]STAR[/B] [/COLOR]   $INFO[Network.LinkState]</label><!--ADD Askew 20150208-->
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible><!--ADD Askew 20150216-->
+                </control>                      <!--ADD Askew 20150208-->
+  </include>                                    <!--ADD Askew 20150208-->
+   <include name="Rcars_sys10">                  <!--ADD Askew 20150208-->
+                <control type="label">          <!--ADD Askew 20150208-->
+                        <description>Network DHCP</description><!--ADD Askew 20150208-->
+                        <posx>824</posx>        			<!--CHG was 745 Askew 20150222-->
+                        <posy>242</posy>        			<!--CHG was 170 Askew 20150222-->
+                        <width>270</width>      <!--ADD Askew 20150208-->
+                        <height>72</height>     <!--ADD Askew 20150208-->
+                        <align>left</align>     <!--ADD Askew 20150208-->
+                        <aligny>center</aligny> <!--ADD Askew 20150208-->
+                        <font>font24_title</font><!--ADD Askew 20150208-->
+                        <textcolor>red</textcolor><!--ADD Askew 20150208-->
+                        <shadowcolor>-</shadowcolor><!--ADD Askew 20150208-->
+                        <label fallback="31000">$INFO[Network.GatewayAddress]</label><!--ADD Askew 20150208-->
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible><!--ADD Askew 20150216-->
+                </control>                      <!--ADD Askew 20150208-->
+  </include>                                    <!--ADD Askew 20150208-->
+   <include name="Rcars_sys_uptime">            <!--ADD Askew 20150216-->
+                <control type="label">          <!--ADD Askew 20150216-->
+                        <description>System UpTime</description><!--ADD Askew 20150216-->
+                        <posx>614</posx>                        	<!--CHG 665 Askew 20150302-->
+                        <posy>235</posy>                         	<!--CHG was 39 Askew 20150223-->
+                        <width>300</width>      <!--ADD Askew 20150216-->
+                        <height>72</height>     <!--ADD Askew 20150216-->
+                        <align>left</align>     <!--ADD Askew 20150216-->
+                        <aligny>center</aligny> <!--ADD Askew 20150216-->
+                        <font>font13_title</font><!--ADD Askew 20150216-->
+                        <textcolor>lcars_med_grey</textcolor>		<!--CHG Askew 20150309-->
+                        <shadowcolor>-</shadowcolor><!--ADD Askew 20150216-->
+                        <label fallback="31000">Online: $INFO[System.Uptime]</label><!--ADD Askew 20150216-->
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible><!--ADD Askew 20150216-->
+                </control>                      <!--ADD Askew 20150216-->
+  </include>                                    <!--ADD Askew 20150216-->
+   <include name="Rcars_sys_tot_uptime">            <!--ADD Askew 20150216-->
+                <control type="label">          <!--ADD Askew 20150216-->
+                        <description>System Total UpTime</description><!--ADD Askew 20150216-->
+                        <posx>614</posx>                        	<!--CHG was 665 Askew 20150306-->
+                        <posy>210</posy>                                 <!--CHG was 60 Askew 20150223-->
+                        <width>400</width>      <!--ADD Askew 20150216-->
+                        <height>72</height>     <!--ADD Askew 20150216-->
+                        <align>left</align>     <!--ADD Askew 20150216-->
+                        <aligny>center</aligny> <!--ADD Askew 20150216-->
+                        <font>font13_title</font><!--ADD Askew 20150216-->
+                        <textcolor>lcars_med_grey</textcolor>		<!--CHG Askew 20150309-->
+                        <!--shadowcolor>-</shadowcolor--><!--ADD Askew 20150216-->
+                        <label fallback="31000">Uptime: $INFO[System.TotalUptime]</label><!--ADD Askew 20150216-->
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible><!--ADD Askew 20150216-->
+                </control>                      <!--ADD Askew 20150216-->
+  </include>                                    <!--ADD Askew 20150216-->
+	<include name="Clock">
+		<control type="label">
+			<description>time label</description>
+			<posx>600</posx><!--CHG was 540 was 20r Askew 20150222-->
+			<posy>18</posy>
+			<width>300</width><!--CHG was 200 20150207-->
+			<height>72</height><!--CHG was 30 Askew 20150207-->
+			<align>left</align><!--CHG was right Askew 20150207-->
+			<aligny>center</aligny>
+			<font>font_MainMenu</font><!--CHG was font28_title or try font45caps_title Askew 20150207-->
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<label>$INFO[System.Time(hh:mm:ss)]</label><!--CHG Askew 20150207-->
+                        <!--REMOVE Askew 20150216--><!--visible>Window.IsActive(Home)</visible-->   <!--CHG Askew 20150216-->
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible><!--ADD Askew 20150216-->
+		</control>
+	</include>
+	<include name="HomeAddonsCommonLayout">
+		<include>Window_OpenClose_Animation</include>
+		<animation type="Visible">
+			<effect type="slide" start="0,30" end="0,0" delay="200" easing="out" tween="quadratic" time="200" />
+			<effect type="fade" start="0" end="100" delay="200" time="200" />
+		</animation>
+		<animation type="Hidden">
+			<effect type="zoom" start="100" end="70" center="auto" easing="in" tween="quadratic" time="300" />
+			<effect type="fade" start="100" end="0" time="300" />
+		</animation>
+		<hitrect x="0" y="530" w="1480" h="120" />
+		<posx>-180</posx>
+		<posy>200r</posy>
+		<width>1480</width>
+		<height>200</height>
+		<pagecontrol>-</pagecontrol>
+		<scrolltime>300</scrolltime>
+		<focusposition>4</focusposition>
+		<movement>3</movement>
+		<orientation>Horizontal</orientation>
+		<itemlayout height="200" width="182">
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>180</width>
+				<height>120</height>
+				<aspectratio aligny="bottom">keep</aspectratio>
+				<bordertexture border="5">button-nofocus.png</bordertexture>
+				<bordersize>3</bordersize>
+				<texture background="true">$INFO[ListItem.Icon]</texture>
+			</control>
+			<control type="image">
+				<posx>5</posx>
+				<posy>120</posy>
+				<width>170</width>
+				<height>110</height>
+				<aspectratio aligny="top">keep</aspectratio>
+				<texture diffuse="diffuse_mirror2.png" flipy="true" background="true">$INFO[ListItem.Icon]</texture>
+			</control>
+			<control type="label">
+				<posx>91</posx>
+				<posy>125</posy>
+				<width>180</width>
+				<height>20</height>
+				<font>font12</font>
+				<textcolor>grey2</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+		</itemlayout>
+		<focusedlayout height="200" width="182">
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>180</width>
+				<height>120</height>
+				<aspectratio aligny="bottom">keep</aspectratio>
+				<bordertexture border="5">button-nofocus.png</bordertexture>
+				<bordersize>3</bordersize>
+				<texture background="true">$INFO[ListItem.Icon]</texture>
+				<visible>!ControlGroup(9002).HasFocus</visible>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>180</width>
+				<height>120</height>
+				<aspectratio aligny="bottom">keep</aspectratio>
+				<bordertexture border="5">folder-focus.png</bordertexture>
+				<bordersize>3</bordersize>
+				<texture background="true">$INFO[ListItem.Icon]</texture>
+				<visible>ControlGroup(9002).HasFocus</visible>
+			</control>
+			<control type="image">
+				<posx>5</posx>
+				<posy>120</posy>
+				<width>170</width>
+				<height>110</height>
+				<aspectratio aligny="top">keep</aspectratio>
+				<texture diffuse="diffuse_mirror2.png" flipy="true" background="true">$INFO[ListItem.Icon]</texture>
+			</control>
+			<control type="label">
+				<posx>91</posx>
+				<posy>125</posy>
+				<width>180</width>
+				<height>20</height>
+				<font>font12</font>
+				<textcolor>white</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>Control.HasFocus(9002)</visible>
+			</control>
+			<control type="label">
+				<posx>91</posx>
+				<posy>125</posy>
+				<width>180</width>
+				<height>20</height>
+				<font>font12</font>
+				<textcolor>grey2</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>!Control.HasFocus(9002)</visible>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="TVNextAiredListCommonLayout">
+		<itemlayout height="150" width="280">
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>280</width>
+				<height>145</height>
+				<texture border="10">button-nofocus.png</texture>
+			</control>
+			<control type="image">
+				<description>Thumb</description>
+				<posx>5</posx>
+				<posy>5</posy>
+				<width>270</width>
+				<height>55</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true">$INFO[ListItem.Property(Art(poster))]</texture>
+				<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),0)</visible>
+			</control>
+			<control type="image">
+				<description>Banner</description>
+				<posx>5</posx>
+				<posy>5</posy>
+				<width>270</width>
+				<height>55</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true">$INFO[ListItem.Property(Art(banner))]</texture>
+				<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),1)</visible>
+			</control>
+			<control type="image">
+				<description>Logo</description>
+				<posx>5</posx>
+				<posy>5</posy>
+				<width>270</width>
+				<height>55</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true">$INFO[ListItem.Property(Path),,logo.png]</texture>
+				<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),2)</visible>
+			</control>
+			<control type="label">
+				<description>Episode Number</description>
+				<posx>140</posx>
+				<posy>60</posy>
+				<width>260</width>
+				<height>15</height>
+				<label>$INFO[ListItem.Property(NextNumber),$LOCALIZE[20359] [COLOR=blue]-[/COLOR] ]</label>
+				<textcolor>white</textcolor>
+				<font>font12</font>
+				<align>center</align>
+			</control>
+			<control type="label">
+				<description>Episode Name</description>
+				<posx>140</posx>
+				<posy>80</posy>
+				<width>260</width>
+				<height>15</height>
+				<label>$INFO[ListItem.Property(NextTitle)]</label>
+				<textcolor>white</textcolor>
+				<font>font12</font>
+				<align>center</align>
+			</control>
+			<control type="label">
+				<description>Next air date/time</description>
+				<posx>140</posx>
+				<posy>100</posy>
+				<width>260</width>
+				<height>15</height>
+				<label>$INFO[ListItem.Property(ShortTime)]$INFO[ListItem.Property(NextDate), [COLOR=blue]-[/COLOR] ]</label>
+				<textcolor>grey2</textcolor>
+				<font>font12</font>
+				<align>center</align>
+			</control>
+			<control type="label">
+				<description>Duration</description>
+				<posx>140</posx>
+				<posy>120</posy>
+				<width>260</width>
+				<height>15</height>
+				<label>$INFO[ListItem.Property(Runtime),, $LOCALIZE[12391]]$INFO[ListItem.Property(Network), [COLOR=blue]-[/COLOR] (,)]</label>
+				<textcolor>grey2</textcolor>
+				<font>font12</font>
+				<align>center</align>
+			</control>
+		</itemlayout>
+		<focusedlayout height="150" width="280">
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>280</width>
+				<height>145</height>
+				<texture border="10">button-focus2.png</texture>
+			</control>
+			<control type="image">
+				<description>Thumb</description>
+				<posx>5</posx>
+				<posy>5</posy>
+				<width>270</width>
+				<height>55</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true">$INFO[ListItem.Property(Art(poster))]</texture>
+				<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),0)</visible>
+			</control>
+			<control type="image">
+				<description>Banner</description>
+				<posx>5</posx>
+				<posy>5</posy>
+				<width>270</width>
+				<height>55</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true">$INFO[ListItem.Property(Art(banner))]</texture>
+				<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),1)</visible>
+			</control>
+			<control type="image">
+				<description>Logo</description>
+				<posx>5</posx>
+				<posy>5</posy>
+				<width>270</width>
+				<height>55</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true">$INFO[ListItem.Property(Path),,logo.png]</texture>
+				<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),2)</visible>
+			</control>
+			<control type="label">
+				<description>Episode Number</description>
+				<posx>140</posx>
+				<posy>60</posy>
+				<width>260</width>
+				<height>15</height>
+				<label>$INFO[ListItem.Property(NextNumber),$LOCALIZE[20359] [COLOR=blue]-[/COLOR] ]</label>
+				<textcolor>selected</textcolor>
+				<font>font12</font>
+				<align>center</align>
+			</control>
+			<control type="label">
+				<description>Episode Name</description>
+				<posx>140</posx>
+				<posy>80</posy>
+				<width>260</width>
+				<height>15</height>
+				<label>$INFO[ListItem.Property(NextTitle)]</label>
+				<textcolor>selected</textcolor>
+				<font>font12</font>
+				<align>center</align>
+			</control>
+			<control type="label">
+				<description>Next air date/time</description>
+				<posx>140</posx>
+				<posy>100</posy>
+				<width>260</width>
+				<height>15</height>
+				<label>$INFO[ListItem.Property(ShortTime)]$INFO[ListItem.Property(NextDate), [COLOR=blue]-[/COLOR] ]</label>
+				<textcolor>white</textcolor>
+				<font>font12</font>
+				<align>center</align>
+			</control>
+			<control type="label">
+				<description>Duration</description>
+				<posx>140</posx>
+				<posy>120</posy>
+				<width>260</width>
+				<height>15</height>
+				<label>$INFO[ListItem.Property(Runtime),, $LOCALIZE[12391]]$INFO[ListItem.Property(Network), [COLOR=blue]-[/COLOR] (,)]</label>
+				<textcolor>white</textcolor>
+				<font>font12</font>
+				<align>center</align>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="backgroundfade">
+		 <animation effect="fade" time="600">Visible</animation>
+		 <animation effect="fade" time="600">Hidden</animation>
+	</include>
+	<include name="Window_OpenClose_Animation">
+		<animation effect="fade" time="250">WindowOpen</animation>
+		<animation effect="fade" time="250">WindowClose</animation>
+	</include>
+	<include name="dialogeffect">
+		<animation effect="fade" time="250">WindowOpen</animation>
+		<animation effect="fade" time="250">WindowClose</animation>
+	</include>
+	<include name="VisibleFadeEffect">
+		<animation effect="fade" time="300">Visible</animation>
+		<animation effect="fade" time="300">Hidden</animation>
+	</include>
+        <include name="KeyboardButton">
+                <width>50</width>
+                <height>50</height>
+                <texturenofocus border="3">KeyboardKeyNF.png</texturenofocus>
+                <texturefocus border="5">KeyboardKey.png</texturefocus>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>font13</font>
+                <focusedcolor>black</focusedcolor>
+        </include>
+
+</includes>

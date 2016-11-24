@@ -1,0 +1,57 @@
+<window id="9999" type="dialog">
+  <defaultcontrol>2</defaultcontrol>
+  <include>dialogeffect</include>							<!--CHG Askew 20150429-->
+  <allowoverlay>yes</allowoverlay>
+  <backgroundcolor>0xff00ff00</backgroundcolor>
+  <zorder>1</zorder>
+  <coordinates>
+	<system>1</system>
+        <posx>0</posx>
+	<posy>0</posy>
+  </coordinates>
+  <controls>
+                <control type="image">
+                        <left>0</left>
+                        <top>320</top>
+                        <width>300</width>
+                        <height>400</height>
+                        <texture border="100,0,100,0">ContentPanel.png</texture>	<!--CHG Askew 20150429-->
+                </control>
+                <control type="image">
+			<left>84</left>							<!--CHG Askew 20150429-->
+			<posy>620</posy>						<!--CHG Askew 20150429-->	
+                        <width>125</width>
+                        <aspectratio>keep</aspectratio>
+                        <texture>$VAR[v_starfleet_emblem]</texture>			<!--CHG Askew 20150429-->
+                </control>
+		<control type="group" id="1">
+			<control type="image">
+			<description>background top image</description>
+			<posx>10</posx>
+			<posy>330</posy>
+			<width>282</width>
+			<height>30</height>
+			<texture border="20,19,20,0">lcz_background_orange.png</texture>                        
+		</control>
+		<control type="button" id="20">
+			<description>Close Window button</description>
+			<posx>227</posx>                                                
+			<posy>334</posy>
+			<width>64</width>
+			<height>32</height>
+			<label>-</label>
+			<font>-</font>
+			<onclick>RunScript($VAR[v_SCRIPT_HOME]/lcars_cancelled.py)</onclick>    
+			<onclick>PreviousMenu</onclick>
+				<texturefocus>DialogCloseButton-focus.png</texturefocus>
+				<texturenofocus>DialogCloseButton.png</texturenofocus>
+				<onleft></onleft>
+				<onright></onright>
+				<onup></onup>
+				<ondown></ondown>
+				<visible>system.getbool(input.enablemouse)</visible>
+		</control>
+	</control>
+
+  </controls>
+</window>

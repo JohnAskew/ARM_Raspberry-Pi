@@ -1,0 +1,70 @@
+		<control type="image">                         	
+			<posx>30</posx>                       		
+			<posy>672</posy>                       	
+			<width>1240</width>                      
+			<height>44</height>                     
+			<texture>lcz_background_orange.png</texture>   		
+		</control>                                     	
+		<control type="image">                                    
+			<posx>260</posx>                          
+			<posy>672</posy>                          
+			<width>54</width>                         
+			<height>12</height>                               
+			<texture>lcz_micro_arc_right_bottom_screen_blue_icons.png</texture>   
+		</control>                                        
+		<control type="image">                                 
+			<posx>314</posx>              
+			<posy>672</posy>                               
+			<width>957</width>         
+			<height>4</height>                             
+			<texture>lcz_background_light_blue.png</texture>    
+		</control>                                             
+			<control type="image">                                 
+			<posx>30</posx>
+			<posy>684</posy>                               
+			<width>125</width>
+			<height>8</height>                             
+			<texture>lcz_background_light_blue.png</texture>    
+		</control>                                             
+		<control type="image">                                 
+			<posx>260</posx>
+			<posy>685</posy>                               
+			<width>44</width>
+			<height>8</height>                             
+			<texture>lcz_background_light_blue.png</texture>    
+		</control>                                             
+		<control type="image">                                 
+			<posx>30</posx>                               
+			<posy>694</posy>                               
+			<width>125</width>                             
+			<height>8</height>                             
+			<texture>lcz_background_light_blue.png</texture>    
+		</control>                                             
+		<control type="image">                                 
+			<posx>260</posx>                               
+			<posy>695</posy>                               
+			<width>44</width>                             
+			<height>8</height>                             
+			<texture>lcz_background_light_blue.png</texture>    
+		</control>                                             
+		<control type="image">                                 
+			<posx>30</posx>                               
+			<posy>705</posy>                               
+			<width>125</width>                             
+			<height>8</height>                             
+			<texture>lcz_background_light_blue.png</texture>    
+		</control>                                             
+		<control type="image">                                 
+			<posx>260</posx>                               
+			<posy>705</posy>                               
+			<width>44</width>                             
+			<height>8</height>                             
+			<texture>lcz_background_light_blue.png</texture>    
+		</control>                                             
+		<control type="image">                                 
+			<posx>261</posx>                                
+			<posy>712</posy>                               
+			<width>1009</width>                            
+			<height>4</height>                            
+			<texture>lcz_background_light_blue.png</texture>   
+		</control>                                             

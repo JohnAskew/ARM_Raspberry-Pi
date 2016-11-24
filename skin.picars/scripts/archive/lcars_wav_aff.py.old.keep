@@ -1,0 +1,4 @@
+import xbmc, xbmcgui
+xbmc.executebuiltin("Notification(ATTENTION, Processing, 3000,/home/osmc/.kodi/addons/skin.picars/lcars/avi/yellow.gif)")
+xbmc.playSFX('/home/osmc/.kodi/addons/skin.picars/lcars/wav/tos-lcars-working.wav')
+xbmc.executebuiltin("Notification(Completed,,2000)")

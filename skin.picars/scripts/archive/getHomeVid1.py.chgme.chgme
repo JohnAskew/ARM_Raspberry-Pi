@@ -1,0 +1,17 @@
+import xbmc,  os, subprocess, time
+
+time.sleep(1)
+locstr =  xbmc.getInfoLabel('System.CurrentWindow')
+myURL = "http://translate.google.com/translate_tts?ie=UTF-8&tl=en&q=" + locstr
+myDir="/home/pi/lcars/wav/output.mp3"
+cmd = "wget -q -U Mozilla -O " + myDir + " " + myURL
+subprocess.call(['wget', '-q', '-U Mozilla', '-O', myDir, myURL])
+xbmc.executebuiltin("PlayMedia(/home/pi/lcars/wav/output.mp3)")
+
+time.sleep(2)
+
+locstr1 =  xbmc.getInfoLabel('system.addontitle(Skin.String(HomeVideosButton1))')
+myURL = "http://translate.google.com/translate_tts?ie=UTF-8&tl=en&q=" + locstr1
+subprocess.call(['wget', '-q', '-U Mozilla', '-O', myDir, myURL])
+xbmc.executebuiltin('Notification('+ locstr1 +' , '+ cmd +', 10000,/home/pi/lcars/avi/yellow.gif)')
+xbmc.executebuiltin("PlayMedia(/home/pi/lcars/wav/output.mp3)")

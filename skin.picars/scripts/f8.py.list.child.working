@@ -1,0 +1,61 @@
+import xbmc, xbmcgui
+ 
+#get actioncodes from https://github.com/xbmc/xbmc/blob/master/xbmc/guilib/Key.h
+ACTION_PREVIOUS_MENU = 10
+ACTION_SELECT_ITEM = 7
+ 
+class MainClass(xbmcgui.Window):
+  def __init__(self):
+    self.strActionInfo = xbmcgui.ControlLabel(180, 60, 200, 200, '', 'font14', '0xFFBBBBFF')
+    self.addControl(self.strActionInfo)
+    self.strActionInfo.setLabel('Push BACK to quit - A to open another window')
+    self.list = xbmcgui.ControlList(200, 150, 300, 400)
+    self.strActionInfo = xbmcgui.ControlLabel(240, 250, 200, 200, '', 'font13', '0xFFFFFFFF')
+    self.addControl(self.strActionInfo)
+    self.strActionInfo.setLabel('This is the first window')
+ 
+  def onAction(self, action):
+    if action == ACTION_PREVIOUS_MENU:
+      self.close()
+    if action == ACTION_SELECT_ITEM:
+      popup = ChildClass()
+      popup .doModal()
+      del popup
+ 
+  def onControl(self, control):
+    if control == self.list:
+      item = self.list.getSelectedItem()
+      self.message('You selected : ' + item.getLabel())
+ 
+class ChildClass(xbmcgui.Window):
+  def __init__(self):
+    self.addControl(xbmcgui.ControlImage(0,0,800,600, 'orange.gif'))
+    self.strActionInfo = xbmcgui.ControlLabel(200, 60, 200, 200, '', 'font14', '0xFFBBFFBB')
+    self.addControl(self.strActionInfo)
+    self.strActionInfo.setLabel('Push BACK to return to the first window')
+    self.strActionInfo = xbmcgui.ControlLabel(240, 200, 200, 200, '', 'font13', '0xFFFFFF99')
+    self.addControl(self.strActionInfo)
+    self.strActionInfo.setLabel('This is the child window')
+    self.list = xbmcgui.ControlList(200, 150, 300, 400)
+    self.addControl(self.list)
+    self.list.addItem('Item 1')
+    self.list.addItem('Item 2')
+    self.list.addItem('Item 3')
+    self.setFocus(self.list)
+
+  def onAction(self, action):
+    if action == ACTION_PREVIOUS_MENU:
+      self.close()
+ 
+  def onControl(self, control):
+    if control == self.list:
+      item = self.list.getSelectedItem()
+      self.message('You selected : ' + item.getLabel())  
+ 
+  def message(self, message):
+    dialog = xbmcgui.Dialog()
+    dialog.ok(" My message title", message) 
+
+mydisplay = MainClass()
+mydisplay .doModal()
+del mydisplay

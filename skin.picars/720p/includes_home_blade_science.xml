@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+        <include name="HomeBladeScience">
+	<defaultcontrol always="true">7951</defaultcontrol>
+        <animation effect="slide" start="-50,0" end="0,0" time="300" tween="quadratic" easing="out">WindowOpen</animation>      
+        <animation effect="slide" start="-3,0" end="250,0" time="400" tween="quadratic" easing="out" condition="ControlGroup(7950).HasFocus() | Control.HasFocus(7902) | Control.HasFocus(7903)  | Control.HasFocus(7901)  |   Container(7989).HasFocus() ">Conditional</animation>
+                <control type="button" id="7989">
+                        <description>Fake button for mouse control</description>
+                        <posx>0</posx>                                  
+                        <posy>0</posy>	
+                        <width>275</width>
+                        <height>1000</height>	
+                        <label>-</label>
+                        <font>-</font>
+                        <texturenofocus>-</texturenofocus>
+                        <texturefocus>-</texturefocus>
+                        <visible>true</visible>
+                </control>
+                <control type="button" id="7901">
+                        <posx>249</posx>
+                        <posy>400</posy>
+                        <width>42</width>
+                        <height>128</height>
+                        <font>-</font>
+                        <texturefocus>rcz_HasSub_sci.png</texturefocus>
+                        <texturenofocus>rcz_HasSub_sci.png</texturenofocus>
+			<visible>!Control.HasFocus(21) + !Control.HasFocus(20) + !ControlGroup(9950).HasFocus() + !ControlGroup(8950).HasFocus() + !Control.HasFocus(9910) + !Control.HasFocus(8901) + !Control.HasFocus(6989) + !Control.HasFocus(6901)</visible>
+                </control>
+                <control type="image" id="7902">                                                          
+                        <posx>0</posx>                                                        
+                        <posy>300</posy>     
+                        <width>250</width>                                                      
+                        <height>420</height>                                                    
+                        <texture>rcz_MediaBladeSub.gif</texture> 	
+                        <bordertexture>lcz_background_deep_blue.png</bordertexture>    
+                        <bordersize>2,10,-1,2</bordersize>                                      
+                </control>                                                      
+                <control type="image">                                          
+                        <description>LOGO</description>                         
+                        <posx>4</posx>                                          
+                        <posy>294</posy>                                         
+                        <align>left</align>                                     
+                        <width>243</width>                                      
+                        <height>80</height>                                     
+                        <aspectratio>keep</aspectratio>                            
+                        <texture>-</texture>  
+                        <background>SubMenuBack-MiddleFO.png</background>       
+                </control>                                                      
+                <control type="group" id="7903">
+                        <posx>0</posx>                                                        
+                        <posy>300</posy>                                                          
+                        <width>250</width>                                                      
+                        <height>420</height>                                                    
+			<texture>-</texture>
+                        <texturefocus>-</texturefocus>
+                        <texturenofocus>-</texturenofocus>
+                </control>      
+                <control type="group" id="7950">
+			<defaultcontrol always="true">7951</defaultcontrol>
+                        <posx>0</posx>
+                        <posy>306</posy>
+                        <width>200</width>
+                        <height>100</height>
+                        <texture>-</texture>
+                        <control type="button" id="7951">
+                                <posx>0</posx>
+                                <posy>4</posy>
+                                <width>45</width>
+                                <height>45</height>
+                                <onup>7950</onup>
+                                <ondown>7950</ondown>
+                                <onleft>7953</onleft>
+                                <onright>7952</onright>
+                                <defaultcontrol>2</defaultcontrol> 
+				<onclick>setFocus(8950)</onclick>
+                                <texturefocus border="5">osdchanneldownfo.png</texturefocus>
+                                <texturenofocus border="5">osdchanneldownnf.png</texturenofocus>
+                        </control>
+                        <control type="button" id="7952">
+                                <posx>43</posx>
+                                <posy>4</posy>
+                                <width>45</width>
+                                <height>45</height>
+                                <onup>7950</onup>
+                                <ondown>7950</ondown>
+                                <onleft>7951</onleft>
+                                <onright>7953</onright>
+				<onclick>setFocus(9952)</onclick>
+                                <texturefocus border="5">osdchannelupfo.png</texturefocus>
+                                <texturenofocus border="5">osdchannelupnf.png</texturenofocus>
+                        </control>
+                        <control type="button" id="7953">
+                                        <description>Close Window button</description>
+                                        <posx>185</posx>
+                                        <posy>6</posy>
+                                        <width>64</width>
+                                        <height>32</height>
+                                        <label>-</label>
+                                        <font>-</font>
+                                        <onleft>7952</onleft>
+                                        <onright>7951</onright>
+                                        <onup>7950</onup>
+                                        <ondown>7950</ondown>
+                                        <onclick>RunScript($VAR[v_SCRIPT_HOME]/lcars_cancelled.py)</onclick>
+                                        <onclick>setFocus(9910,1)</onclick>
+                                        <texturefocus>DialogCloseButton-focus.png</texturefocus>
+                                        <texturenofocus>DialogCloseButton.png</texturenofocus>
+                                        <visible>system.getbool(input.enablemouse)</visible>
+                        </control>
+			<control type="group" id="7954">
+				<posx>110</posx>
+				<posy>0</posy>
+				<include>Window_OpenClose_Animation</include>
+				<control type="label">
+					<description>Date label</description>
+					<posx>0</posx>
+					<posy>5</posy>
+					<width>80</width>
+					<height>35</height>
+					<align>left</align>
+					<font>font18</font>
+					<textcolor>green</textcolor>
+					<shadowcolor>-</shadowcolor>
+					<label>$INFO[System.Date(DDD)]</label>
+				</control>
+				<control type="label">
+					<description>Date label</description>
+					<posx>0</posx>
+					<posy>24</posy>
+					<width>100</width>
+					<height>35</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>font24_title</font>
+					<textcolor>FFFFFFFF</textcolor>
+					<shadowcolor>-</shadowcolor>
+					<label>$INFO[System.Date(yyyy)][COLOR=lcars_light_blue].$INFO[System.Date(mm)].[/COLOR][COLOR=red]$INFO[System.Date(dd)][/COLOR]</label>
+					<visible>!Container(9910).Hasfocus(10)| Container(9910).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)+ ![Window.IsVisible(OSDVideoSettings)] </visible>
+					<include>Window_OpenClose_Animation</include>
+				</control>
+                                <control type="label">
+                                        <description>Location label</description>
+                                        <posx>-30</posx>
+                                        <posy>87</posy>
+                                        <width>100</width>
+                                        <height>15</height>
+                                        <align>left</align>
+                                        <aligny>center</aligny>
+                                        <font>font18</font>
+                                        <textcolor>lcars_light_blue</textcolor>
+                                        <shadowcolor>black</shadowcolor>
+                                        <label>$INFO[Window(Weather).Property(Location)]</label>
+                                </control>
+				<control type="image">
+					<description>Weather image</description>
+					<posx>70</posx>  
+					<posy>60</posy>
+					<width>60</width>
+					<height>60</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[Weather.Conditions]</texture>
+				</control>
+				<control type="label">
+					<posx>48</posx>
+					<posy>120</posy>
+					<description>Temp label</description>
+					<font>font24_title</font>
+					<textcolor>FFFFFFFF</textcolor>		
+					<shadowcolor>-</shadowcolor>
+					<label>$INFO[Window(Weather).Property(Current.Temperature)]</label>
+				</control>
+				<control type="label">
+					<description>Temp Units</description>
+					<posx>67</posx>
+					<posy>125</posy>
+					<width>20</width>
+					<height>22</height>
+					<font>font12</font>
+					<label>$INFO[System.TemperatureUnits]</label>
+					<textcolor>lcars_orange</textcolor>		
+					<shadowcolor>-</shadowcolor>
+					<visible>!IsEmpty(Window(Weather).Property(Current.Temperature))</visible>
+				</control>
+				<control type="label">
+					<description>Conditions Label</description>
+					<posx>40</posx>
+					<posy>105</posy>
+					<width>100</width>
+					<height>36</height>
+					<font>font18_title</font>
+					<label>$INFO[Window(Weather).Property(Current.Condition),  ]</label>
+					<textcolor>lcars_light_blue</textcolor>		
+					<shadowcolor>black</shadowcolor>
+				</control>
+                      <control type="button" id="722">        
+                                <description>Mute reset 22</description>        
+                                <posx>-55</posx>        
+                                <posy>160</posy>        
+                                <width>95</width>        
+                                <height>50</height>        
+                                <label>-</label>        
+                                <font>-</font>        
+                                <onfocus>RunScript($VAR[v_SCRIPT_HOME]/swat_home_display_mute.py)</onfocus>        
+                                <onclick>RunScript($VAR[v_SCRIPT_HOME]/swat_home_unmute.py)</onclick>        
+                                <texturefocus border="5">lcars_floor_buttonFO.gif</texturefocus>        
+                                <onleft>99</onleft>        
+                                <onright>29</onright>        
+                                <onup>99</onup>        
+                                <ondown>9000</ondown>        
+                        </control>        
+                        <control type="image">        
+                                <description>Mute Icon</description>        
+                                <posx>-52</posx>        
+                                <posy>165</posy>        
+                                <width>90</width>        
+                                <height>40</height>        
+                                <aspectratio>keep</aspectratio>        
+                                <texture>lcars_btn_vol_mute_panel_grey1.png</texture>        
+                        </control>        
+                       <control type="button" id="725">         
+                                <description>Show Volume button</description>         
+                                <posx>38</posx>         
+                                <posy>160</posy>         
+                                <width>95</width>         
+                                <height>50</height>         
+                                <label>-</label>         
+                                <font>-</font>         
+                                <onfocus>RunScript($VAR[v_SCRIPT_HOME]/swat_sel_vol.py)</onfocus>         
+                                <onclick>ActivateWindow(OSDVideoSettings)</onclick>         
+                                <onclick>ActivateWindow(OSDAudioSettings)</onclick>         
+                                <texturefocus border="5">lcars_floor_buttonFO.gif</texturefocus>         
+                                <onleft>24</onleft>         
+                                <onright>26</onright>         
+                                <onup>99</onup>         
+                                <ondown>9910</ondown>         
+                        </control>         
+                        <control type="image">         
+                                <description>Show Volume Icon</description>         
+                                <posx>40</posx>         
+                                <posy>165</posy>         
+                                <width>90</width>         
+                                <height>40</height>         
+                                <aspectratio>keep</aspectratio>         
+                                <texture>lcars_btn_vol_show_panel_grey.png</texture>         
+                        </control>         
+                        <control type="button" id="723">          
+                                <description>Vol down button</description>          
+                                <posx>-55</posx>          
+                                <posy>210</posy>          
+                                <width>95</width>          
+                                <height>50</height>          
+                                <label>-</label>          
+                                <font>-</font>          
+                                <onfocus>RunScript($VAR[v_SCRIPT_HOME]/swat_home_display_vol_down.py)</onfocus>         
+                                <onclick>RunScript($VAR[v_SCRIPT_HOME]/swat_home_vol_25.py)</onclick>          
+                                <texturefocus border="5">lcars_floor_buttonFO.gif</texturefocus>          
+                                <onleft>22</onleft>          
+                                <onright>24</onright>          
+                                <onup>99</onup>          
+                                <ondown>9910</ondown>          
+                        </control>          
+                        <control type="image">          
+                                <description>Vol down Icon</description>          
+                                <posx>-52</posx>          
+                                <posy>215</posy>          
+                                <width>90</width>          
+                                <height>40</height>          
+                                <aspectratio>keep</aspectratio>          
+                                <texture>lcars_btn_vol_down_panel_grey.png</texture>          
+                        </control>          
+                       <control type="button" id="724">          
+                                <description>Vol up button</description>          
+                                <posx>38</posx>          
+                                <posy>210</posy>          
+                                <width>95</width>          
+                                <height>50</height>          
+                                <label>-</label>          
+                                <font>-</font>          
+                                <onfocus>RunScript($VAR[v_SCRIPT_HOME]/swat_home_display_vol_up.py)</onfocus>         
+                                <onclick>RunScript($VAR[v_SCRIPT_HOME]/swat_home_vol_up.py)</onclick>          
+                                <texturefocus border="5">lcars_floor_buttonFO.gif</texturefocus>          
+                                <onleft>23</onleft>          
+                                <onright>25</onright>          
+                                <onup>99</onup>          
+                                <ondown>9910</ondown>          
+                        </control>          
+                        <control type="image">          
+                                <description>Vol up Icon</description>          
+                                <posx>40</posx>          
+                                <posy>215</posy>          
+                                <width>90</width>          
+                                <height>40</height>          
+                                <aspectratio>keep</aspectratio>          
+                                <texture>lcars_btn_vol_up_panel_grey.png</texture>          
+                        </control>          
+                        <control type="button" id="726">         
+                                <description>Sel Audio device button</description>         
+                                <posx>-55</posx>         
+                                <posy>260</posy>         
+                                <width>95</width>         
+                                <height>50</height>         
+                                <label>-</label>         
+                                <font>-</font>         
+                                <onfocus>RunScript($VAR[v_SCRIPT_HOME]/swat_home_display_audio.py)</onfocus>         
+                                <onclick>RunScript($VAR[v_SCRIPT_HOME]/swat_sel_audio.py)</onclick>         
+                                <texturefocus border="5">lcars_floor_buttonFO.gif</texturefocus>         
+                                <onleft>25</onleft>         
+                                <onright>27</onright>         
+                                <onup>99</onup>         
+                                <ondown>9910</ondown>         
+                        </control>         
+                        <control type="image">         
+                                <description>Sel Audio Device Icon</description>         
+                                <posx>-52</posx>         
+                                <posy>265</posy>         
+                                <width>90</width>         
+                                <height>40</height>         
+                                <aspectratio>keep</aspectratio>         
+                                <texture>lcars_btn_audio_config_panel_grey.png</texture>         
+         		</control>
+                        <control type="button" id="727">               
+                                <description>Clear Cache button</description>               
+                                <posx>38</posx>               
+                                <posy>260</posy>               
+                                <width>95</width>               
+                                <height>50</height>               
+                                <label>-</label>               
+                                <font>-</font>               
+                                <onfocus>RunScript($VAR[v_SCRIPT_HOME]/swat_home_display_flush_buffer.py)</onfocus>               
+                                <onclick>RunScript($VAR[v_SCRIPT_HOME]/swat_del_cache.py)</onclick>               
+                                <texturefocus border="5">lcars_floor_buttonFO.gif</texturefocus>               
+                                <onleft>26</onleft>               
+                                <onright>28</onright>               
+                                <onup>99</onup>               
+                                <ondown>9910</ondown>               
+                        </control>               
+                        <control type="image">               
+                                <description>Clear Cache Icon</description>               
+                                <posx>41</posx>               
+                                <posy>265</posy>               
+                                <width>90</width>               
+                                <height>40</height>               
+                                <aspectratio>keep</aspectratio>               
+                                <texture>lcars_btn_flush_buffer_panel_grey.png</texture>               
+                        </control>              
+                          <control type="button" id="728">      
+                                  <description>Settings Config  ADV device button</description>              
+                                  <posx>-55</posx>              
+                                  <posy>310</posy>              
+                                  <width>95</width>              
+                                  <height>50</height>              
+                                  <label>-</label>              
+                                  <font>-</font>              
+                                  <onfocus>RunScript($VAR[v_SCRIPT_HOME]/swat_home_display_config.py)</onfocus>              
+                                  <onclick>RunScript($VAR[v_SCRIPT_HOME]/swat_sel_audio_adv.py)</onclick>              
+                                  <texturefocus border="5">lcars_floor_buttonFO.gif</texturefocus>              
+                                  <onleft>27</onleft>              
+                                  <onright>29</onright>              
+                                  <onup>99</onup>              
+                                  <ondown>9910</ondown>              
+                          </control>              
+                          <control type="image">              
+                                  <description>Setttings Config ADV Icon</description>              
+                                  <posx>-52</posx>              
+                                  <posy>315</posy>              
+                                  <width>90</width>              
+                                  <height>40</height>              
+                                  <aspectratio>keep</aspectratio>              
+                                  <texture>lcars_btn_audio_config_adv_panel_grey.png</texture>              
+                          </control>              
+                          <control type="button" id="729">          
+                                  <description>Periph. Config  ADV device button</description>              
+                                  <posx>38</posx>              
+                                  <posy>310</posy>              
+                                  <width>95</width>              
+                                  <height>50</height>              
+                                  <label>-</label>              
+                                  <font>-</font>              
+                                  <onfocus>RunScript($VAR[v_SCRIPT_HOME]/swat_home_display_periph.py)</onfocus>              
+                                  <onclick>RunScript($VAR[v_SCRIPT_HOME]/swat_config_periph.py)</onclick>              
+                                  <texturefocus border="5">lcars_floor_buttonFO.gif</texturefocus>              
+                                  <onleft>28</onleft>              
+                                  <onright>99</onright>              
+                                  <onright>setFocus(9910,2)</onright>              
+                                  <onup>99</onup>              
+                                  <ondown>9910</ondown>              
+                          </control>              
+                          <control type="image">              
+                                  <description>Periph. Config ADV Icon</description>              
+                                  <posx>41</posx>              
+                                  <posy>315</posy>              
+                                  <width>90</width>              
+                                  <height>40</height>              
+                                  <aspectratio>keep</aspectratio>              
+                                  <texture>lcars_btn_config_periph_panel_grey.png</texture>              
+                          </control>              
+
+
+
+
+		</control>
+             </control>
+        </include> 								
+</includes>

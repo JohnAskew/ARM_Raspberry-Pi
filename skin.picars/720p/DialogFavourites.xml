@@ -1,0 +1,155 @@
+<window type="dialog">
+	<defaultcontrol always="true">450</defaultcontrol>
+	<coordinates>
+		<system>1</system>
+		<posx>0</posx>
+		<posy>0</posy>
+	</coordinates>
+	<controls>
+		<control type="group">
+			<animation effect="slide" start="400,0" end="0,0" time="400" tween="quadratic" easing="out">WindowOpen</animation>
+			<animation effect="slide" start="0,0" end="400,0" time="400" tween="quadratic" easing="out">WindowClose</animation>
+			<control type="image">
+				<posx>400r</posx>
+				<posy>0</posy>
+				<width>500</width>					
+				<height>720</height>
+				<texture border="15,0,0,0" flipx="true">HomeBladeSub.png</texture> 
+			</control>
+			<control type="image">						
+				<posx>250r></posx>					
+				<posy>5</posy>						
+				<width>250</width>					
+				<height>90</height>					
+				<aspectratio>keep</aspectratio>				
+				<texture>$VAR[lcars_auth_comm_gif]</texture>		
+			</control>							
+			<control type="button">
+				<description>Close Window button</description>
+				<posx>380r</posx>
+				<posy>0</posy>
+				<width>64</width>
+				<height>32</height>
+				<label>-</label>
+				<font>-</font>
+				<onclick>RunScript($VAR[v_SCRIPT_HOME]/response/lcars_close_swoosh.py)</onclick>
+				<onclick>PreviousMenu</onclick>
+				<texturefocus>DialogCloseButton-focus.png</texturefocus>
+				<texturenofocus>DialogCloseButton.png</texturenofocus>
+				<onleft>450</onleft>
+				<onright>450</onright>
+				<onup>450</onup>
+				<ondown>450</ondown>
+				<visible>system.getbool(input.enablemouse)</visible>
+			</control>
+			<control type="image">
+				<posx>370r</posx>
+				<posy>80</posy>						
+				<width>175</width>					
+				<height>175</height>					
+				<aspectratio align="center">keep</aspectratio>
+				<fadetime>IconCrossfadeTime</fadetime>
+				<texture>$INFO[ListItem.Icon]</texture>
+				<bordertexture border="8">ThumbShadow.png</bordertexture>
+				<bordersize>8</bordersize>
+			</control>
+			<control type="list" id="450">
+				<posx>390r</posx>
+				<posy>250</posy>
+				<width>500</width>
+				<height>380</height>
+				<onup>450</onup>
+				<onleft>Dialog.Close(Favourites)</onleft>
+				<onright>450</onright>
+				<ondown>450</ondown>
+                                <pagecontrol>0</pagecontrol>						
+                                <autoscroll time="2000" delay="3000" repeat="5000">true</autoscroll>    
+                                <pauseatend>1000</pauseatend>                                           
+                                <itemgap>2</itemgap>							
+				<itemlayout height="30">						
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>470</width>					
+						<height>34</height>					
+						<texture border="5">button-nofocus.png</texture>
+					</control>
+					<control type="label">
+						<posx>10</posx>
+						<posy>0</posy>
+						<width>500</width>					
+						<height>34</height>					
+						<font>font18_title</font>				
+						<align>left</align>
+						<aligny>center</aligny>
+						<selectedcolor>selected</selectedcolor>
+						<info>ListItem.Label</info>
+					</control>
+					<control type="image">                                          
+						    
+						<posx>340</posx>                                        
+						<posy>0</posy>                                          
+						<aligny>center</aligny>					
+						<width>35</width>                                       
+                                		<height>35</height>                                     
+                                		<aspectratio>keep</aspectratio>  	                
+                                		<texture>starflee.png</texture>                         
+                        		</control>                                                      
+				</itemlayout>
+				<focusedlayout height="34">						
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+                                                <width>470</width>                                      
+                                                <height>34</height>                                     
+						<visible>!Control.HasFocus(450)</visible>
+						<texture border="3">button-nofocus.png</texture>
+					</control>
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>470</width>					
+						<height>34</height>					
+						<visible>Control.HasFocus(450)</visible>
+						<texture border="3">lcars_HomeSubFO_new_long.gif</texture>		
+					</control>
+					<control type="label">
+						<posx>10</posx>
+						<posy>0</posy>
+                                                <width>500</width>                                      
+                                                <height>34</height>                                     
+						<font>font18_title</font>                               
+						<align>left</align>
+						<aligny>center</aligny>
+						<selectedcolor>selected</selectedcolor>							
+						<textcolor>FFFFFFFF</textcolor>								
+						<info>ListItem.Label</info>
+                                                <animation effect="slide" end="30,0" time="200">Focus</animation>			
+						<animation effect="zoom" end="130,100" center="360,288" time="200">Focus</animation>	
+					</control>
+                                        <control type="image">                                          
+                                                <posx>287</posx>                                        
+                                                <posy>0</posy>                                        
+                                                <aligny>center</aligny>                                 
+                                                <width>100</width>                                      
+                                                <height>33</height>                                     
+                                                <aspectratio>keep</aspectratio>                         
+                                                <texture>lcz_scanning_0.0.png</texture>                 
+                                        </control>                                                      
+				</focusedlayout>
+			</control>
+			<control type="label">
+				<description>Page label</description>
+				<posx>30r</posx>
+				<posy>670</posy>
+				<width>350</width>
+				<height>31</height>							
+				<align>right</align>
+				<aligny>center</aligny>
+				<font>font18</font>							
+				<textcolor>grey</textcolor>
+				<label>([COLOR=blue]$INFO[Container(450).NumItems][/COLOR]) $LOCALIZE[31025] - $LOCALIZE[31024] ([COLOR=blue]$INFO[Container(450).CurrentPage]/$INFO[Container(450).NumPages][/COLOR])</label>
+			</control>
+		</control>
+	</controls>
+</window>

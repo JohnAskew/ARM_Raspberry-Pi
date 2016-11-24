@@ -1,0 +1,3 @@
+import xbmc
+xbmc.executebuiltin("SetVolume(50,TRUE)")
+xbmc.executebuiltin("Notification(Completed,50% Volume ,2000,/home/pi/lcars/warn/yellow.gif)")

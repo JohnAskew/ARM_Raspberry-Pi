@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>									<?xml version="1.0" encoding="UTF-8"?>													
+	<defaultcontrol always="true">9000</defaultcontrol>							<defaultcontrol always="true">9000</defaultcontrol>													
+		<control type="image">											<control type="image">													
+			<left>0</left>								   |				<posx>0</posx>													
+			<top>100r</top>								   |				<posy>100r</posy>													
+			<texture>floor.png</texture>						   |				<texture>lcz_floor_multi.png</texture>			<!--CHG Askew 20													
+		<control type="image">											<control type="image">													
+			<description>Section header image</description>								<description>Section header image</description>													
+			<left>20</left>								   |				<posx>20</posx>													
+			<top>3</top>								   |				<posy>3</posy>													
+		<control type="grouplist">										<control type="grouplist">													
+			<left>65</left>								   |				<posx>65</posx>													
+			<top>5</top>								   |				<posy>5</posy>													
+			<control type="label">											<control type="label">													
+			<control type="label">											<control type="label">													
+				<label>[COLOR=blue] - [/COLOR]$INFO[Container.FolderName]</label					<label>[COLOR=blue] - [/COLOR]$INFO[Container.FolderName]</label													
+		<control type="group">											<control type="group">													
+			<left>90</left>								   |				<posx>90</posx>													
+			<top>30</top>								   |				<posy>30</posy>													
+			<animation type="WindowOpen" reversible="false">							<animation type="WindowOpen" reversible="false">													
+				<effect type="zoom" start="80" end="100" center="640,360" easing   |					<effect type="zoom" start="80" end="100" center="640,360" easing													
+				<effect type="fade" start="0" end="100" time="300"/>		   |					<effect type="fade" start="0" end="100" time="300" />													
+			<animation type="WindowClose" reversible="false">							<animation type="WindowClose" reversible="false">													
+				<effect type="zoom" start="100" end="80" center="640,360" easing   |					<effect type="zoom" start="100" end="80" center="640,360" easing													
+				<effect type="fade" start="100" end="0" time="300"/>		   |					<effect type="fade" start="100" end="0" time="300" />													
+			<control type="image">											<control type="image">													
+				<left>5</left>							   |					<posx>5</posx>													
+				<top>5</top>							   |					<posy>5</posy>													
+				<texture border="15">ContentPanel.png</texture>								<texture border="15">ContentPanel.png</texture>													
+			<control type="image">											<control type="image">													
+				<left>5</left>							   |					<posx>5</posx>													
+				<top>625</top>							   |					<posy>625</posy>													
+				<texture border="15">ContentPanelMirror.png</texture>							<texture border="15">ContentPanelMirror.png</texture>													
+			<control type="button">											<control type="button">													
+				<description>Close Window button</description>								<description>Close Window button</description>													
+				<left>980</left>						   |					<posx>980</posx>													
+				<top>11</top>							   |					<posy>11</posy>													
+			<control type="image">											<control type="image">													
+				<left>30</left>							   |	                                <posx>10</posx>                                 <!--CHG Askew 20													
+				<top>15</top>							   |	                                <posy>10</posy>                                 <!--CHG was 10 A													
+				<width>220</width>						   |	                                <align>left</align>                             <!--ADD Askew 20													
+												   >					<width>250</width>													
+				<aspectratio>keep</aspectratio>					   |					<aspectratio>-</aspectratio>													
+				<texture>Confluence_Logo.png</texture>				   |					<texture>lcz_engineer_1.gif</texture>    <!--CHG Askew 20150319-													
+			<control type="list" id="9000">										<control type="list" id="9000">													
+				<left>10</left>							   |					<posx>10</posx>													
+				<top>90</top>							   |					<posy>90</posy>													
+				<itemlayout height="80" width="260">									<itemlayout height="80" width="260">													
+					<control type="image">											<control type="image">													
+						<left>0</left>					   |							<posx>0</posx>													
+						<top>0</top>					   |							<posy>0</posy>													
+						<texture border="5">MenuItemNF.png</texture>								<texture border="5">MenuItemNF.png</texture>													
+					<control type="label">											<control type="label">													
+						<left>10</left>					   |							<posx>250</posx>													
+						<top>15</top>					   |							<posy>15</posy>													
+						<width>240</width>				   |							<width>380</width>													
+					<control type="label">											<control type="label">													
+						<left>10</left>					   |							<posx>250</posx>													
+						<top>42</top>					   |							<posy>42</posy>													
+						<width>240</width>				   |							<width>870</width>													
+				<focusedlayout height="80" width="260">									<focusedlayout height="80" width="260">													
+					<control type="image">											<control type="image">													
+						<left>0</left>					   |							<posx>0</posx>													
+						<top>0</top>					   |							<posy>0</posy>													
+						<texture border="5">MenuItemFO.png</texture>								<texture border="5">MenuItemFO.png</texture>													
+												   >	                                                <onfocus>RunScript(/home/osmc/.kodi/addons/skin.													
+												   >	                                                <animation effect="slide" end="-30,0" time="200"													
+						<animation effect="fade" start="100" end="30" ti							<animation effect="fade" start="100" end="30" ti													
+					<control type="label">											<control type="label">													
+						<left>10</left>					   |							<posx>250</posx>													
+						<top>15</top>					   |							<posy>15</posy>													
+						<width>240</width>				   |							<width>380</width>													
+					<control type="label">											<control type="label">													
+						<left>10</left>					   |							<posx>250</posx>													
+						<top>42</top>					   |							<posy>42</posy>													
+						<width>240</width>				   |							<width>870</width>													
+						<textcolor>grey2</textcolor>			   |							<textcolor>red</textcolor>															
+												   >	                                                <onfocus>RunScript(/home/osmc/.kodi/addons/skin.													
+												   >	                                                <animation effect="slide" end="-30,0" time="200"													
+					<item id="1">												<item id="1">													
+						<onclick>noop</onclick>				   |	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+					<item id="2">												<item id="2">													
+						<onclick>noop</onclick>				   |	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+												   >							<onclick>-</onclick>													
+					<item id="3">												<item id="3">													
+						<onclick>noop</onclick>				   |	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+												   >							<onclick>-</onclick>													
+					<item id="4">												<item id="4">													
+						<onclick>noop</onclick>				   |	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+												   >							<onclick>-</onclick>													
+			<control type="image">											<control type="image">													
+				<left>268</left>						   |					<posx>268</posx>													
+				<top>10</top>							   |					<posy>10</posy>													
+				<texture border="5">black-back2.png</texture>								<texture border="5">black-back2.png</texture>													
+			<control type="image">											<control type="image">													
+				<left>268</left>						   |					<posx>268</posx>													
+				<top>10</top>							   |					<posy>10</posy>													
+				<width>790</width>						   |					<width>804</width>													
+				<height>52</height>						   |					<height>100</height>													
+				<texture>dialogheader.png</texture>				   |					<aspectratio>stretch</aspectratio>													
+												   >					<texture>GlassTitleBar.png</texture>													
+			<control type="label">											<control type="label">													
+				<description>header label</description>									<description>header label</description>													
+				<left>300</left>						   |					<posx>300</posx>													
+				<top>20</top>							   |					<posy>20</posy>													
+				<width>726</width>						   |					<width>740</width>													
+				<label>$LOCALIZE[20077] - $INFO[Container(9000).ListItem.Label]<					<label>$LOCALIZE[20077] - $INFO[Container(9000).ListItem.Label]<													
+				<align>center</align>						   |					<align>left</align>													
+			<control type="group" id="9010">									<control type="group" id="9010">													
+				<control type="grouplist" id="9001">									<control type="grouplist" id="9001">													
+					<left>290</left>					   |						<posx>290</posx>													
+					<top>60</top>						   |						<posy>60</posy>													
+					<control type="label" id="100">										<control type="label" id="100">													
+					<control type="radiobutton" id="101">									<control type="radiobutton" id="101">													
+												   >	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+					<control type="radiobutton" id="102">									<control type="radiobutton" id="102">													
+												   >	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+					<control type="radiobutton" id="112">									<control type="radiobutton" id="112">													
+												   >	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+					<control type="radiobutton" id="113">									<control type="radiobutton" id="113">													
+												   >	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+					<control type="label" id="104">										<control type="label" id="104">													
+					<control type="radiobutton" id="115">									<control type="radiobutton" id="115">													
+												   >	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+					<control type="label" id="106">										<control type="label" id="106">													
+					<control type="radiobutton" id="107">									<control type="radiobutton" id="107">													
+												   >	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+					<control type="button" id="108">									<control type="button" id="108">													
+						<description>Startup Playlist Path</description>							<description>Startup Playlist Path</description>													
+												   >	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+				<control type="scrollbar" id="60">									<control type="scrollbar" id="60">													
+					<left>1060</left>					   |						<posx>1060</posx>													
+					<top>60</top>						   |						<posy>60</posy>													
+					<texturesliderbackground border="0,14,0,14">ScrollBarV.p						<texturesliderbackground border="0,14,0,14">ScrollBarV.p													
+					<texturesliderbar border="0,14,0,14">ScrollBarV_bar.png<						<texturesliderbar border="0,14,0,14">ScrollBarV_bar.png<													
+					<texturesliderbarfocus border="0,14,0,14">ScrollBarV_bar						<texturesliderbarfocus border="0,14,0,14">ScrollBarV_bar													
+				<control type="grouplist" id="9002">									<control type="grouplist" id="9002">													
+					<left>290</left>					   |						<posx>290</posx>													
+					<top>60</top>						   |						<posy>60</posy>													
+					<control type="label" id="200">										<control type="label" id="200">													
+					<control type="radiobutton" id="202">									<control type="radiobutton" id="202">													
+						<description>enable video info</description>								<description>enable video info</description>													
+												   >	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+					<control type="radiobutton" id="203">									<control type="radiobutton" id="203">													
+						<description>enable music info</description>								<description>enable music info</description>													
+												   >	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+					<control type="radiobutton" id="204">									<control type="radiobutton" id="204">													
+						<description>enable weather info</description>								<description>enable weather info</description>													
+												   >	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+					<control type="radiobutton" id="205">									<control type="radiobutton" id="205">													
+						<description>Show Recently added Video info</des							<description>Show Recently added Video info</des													
+												   >	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+					<control type="radiobutton" id="206">									<control type="radiobutton" id="206">													
+						<description>Show Recently added info</descripti							<description>Show Recently added info</descripti													
+												   >	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+					<control type="label" id="220">										<control type="label" id="220">													
+					<control type="radiobutton" id="221">									<control type="radiobutton" id="221">													
+						<description>Hide Videos Button</description>								<description>Hide Videos Button</description>													
+						<label>$LOCALIZE[31111] - $LOCALIZE[3]</label>								<label>$LOCALIZE[31111] - $LOCALIZE[3]</label>													
+												   >	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+					<control type="radiobutton" id="222">									<control type="radiobutton" id="222">													
+						<description>Hide Movies Button</description>								<description>Hide Movies Button</description>													
+						<label>$LOCALIZE[31111] - $LOCALIZE[20342] [COLO							<label>$LOCALIZE[31111] - $LOCALIZE[20342] [COLO													
+												   >	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+					<control type="radiobutton" id="223">									<control type="radiobutton" id="223">													
+						<description>Hide TV Shows Button</description>								<description>Hide TV Shows Button</description>													
+						<label>$LOCALIZE[31111] - $LOCALIZE[20343] [COLO							<label>$LOCALIZE[31111] - $LOCALIZE[20343] [COLO													
+												   >	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+					<control type="radiobutton" id="224">									<control type="radiobutton" id="224">													
+						<description>Hide Music Button</description>								<description>Hide Music Button</description>													
+						<label>$LOCALIZE[31111] - $LOCALIZE[2]</label>								<label>$LOCALIZE[31111] - $LOCALIZE[2]</label>													
+												   >	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+					<control type="radiobutton" id="225">									<control type="radiobutton" id="225">													
+						<description>Hide Pictures Button</description>								<description>Hide Pictures Button</description>													
+						<label>$LOCALIZE[31111] - $LOCALIZE[1]</label>								<label>$LOCALIZE[31111] - $LOCALIZE[1]</label>													
+												   >	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+					<control type="radiobutton" id="226">									<control type="radiobutton" id="226">													
+						<description>Hide Programs Button</description>								<description>Hide Programs Button</description>													
+						<label>$LOCALIZE[31111] - $LOCALIZE[0]</label>								<label>$LOCALIZE[31111] - $LOCALIZE[0]</label>													
+												   >	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+					<control type="radiobutton" id="228">									<control type="radiobutton" id="228">													
+						<description>Hide Weather Button</description>								<description>Hide Weather Button</description>													
+						<label>$LOCALIZE[31111] - $LOCALIZE[8]</label>								<label>$LOCALIZE[31111] - $LOCALIZE[8]</label>													
+												   >	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+				<control type="scrollbar" id="60">									<control type="scrollbar" id="60">													
+					<left>1060</left>					   |						<posx>1060</posx>													
+					<top>60</top>						   |						<posy>60</posy>													
+					<texturesliderbackground border="0,14,0,14">ScrollBarV.p						<texturesliderbackground border="0,14,0,14">ScrollBarV.p													
+					<texturesliderbar border="0,14,0,14">ScrollBarV_bar.png<						<texturesliderbar border="0,14,0,14">ScrollBarV_bar.png<													
+					<texturesliderbarfocus border="0,14,0,14">ScrollBarV_bar						<texturesliderbarfocus border="0,14,0,14">ScrollBarV_bar													
+				<control type="grouplist" id="9003">									<control type="grouplist" id="9003">													
+					<left>290</left>					   |						<posx>290</posx>													
+					<top>60</top>						   |						<posy>60</posy>													
+					<control type="label" id="300">										<control type="label" id="300">													
+					<control type="radiobutton" id="301">									<control type="radiobutton" id="301">													
+												   >	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+					<control type="radiobutton" id="302">									<control type="radiobutton" id="302">													
+												   >	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+					<control type="radiobutton" id="303">									<control type="radiobutton" id="303">													
+												   >	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+					<control type="radiobutton" id="304">									<control type="radiobutton" id="304">													
+												   >	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+					<control type="label" id="310">										<control type="label" id="310">													
+					<control type="radiobutton" id="311">									<control type="radiobutton" id="311">													
+												   >	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+					<control type="button" id="312">									<control type="button" id="312">													
+						<label>- $LOCALIZE[31110]</label>		   |							<label>$LOCALIZE[31110]</label>													
+						<label2>[COLOR=selected]$INFO[Skin.String(Custom   |							<label2>[COLOR=selected_purple]$INFO[Skin.String													
+												   >	                                                <onclick>RunScript(/home/osmc/.kodi/addons/skin.													
+				<control type="group">											<control type="group">													
+					<control type="grouplist" id="9004">									<control type="grouplist" id="9004">													
+						<left>290</left>				   |							<posx>290</posx>													
+						<top>60</top>					   |							<posy>60</posy>													
+						<control type="label" id="453">										<control type="label" id="453">													
+						<control type="button" id="455">									<control type="button" id="455">													
+							<label2>[COLOR=selected]$INFO[system.add   <
+							<textcolor>grey2</textcolor>		   <
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+						<control type="button" id="456">									<control type="button" id="456">													
+							<label>- $LOCALIZE[24020]</label>									<label>- $LOCALIZE[24020]</label>													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+						</control> 												</control> 													
+												   >							<control type="label" id="457">													
+												   >								<width>750</width>													
+												   >								<height>45</height>													
+												   >								<font>font13_title</font>													
+												   >								<label>31141</label>													
+												   >								<textcolor>blue</textcolor>													
+												   >								<shadowcolor>black</shadowcolor>													
+												   >								<align>left</align>													
+												   >								<aligny>center</aligny>													
+												   >							</control>													
+												   >							<control type="button" id="458">													
+												   >								<width>750</width>													
+												   >								<height>40</height>													
+												   >								<font>font13</font>													
+												   >								<label>$LOCALIZE[31133]</label>													
+												   >								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >								<textcolor>grey2</textcolor>													
+												   >								<focusedcolor>white</focusedcolor>													
+												   >								<texturefocus>MenuItemFO.png</texturefoc													
+												   >								<texturenofocus>MenuItemNF.png</texturen													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+												   >								<onclick>Skin.SetAddon(SubtitleScript_Pa													
+												   >							</control>													
+												   >							<control type="button" id="459">													
+												   >								<width>750</width>													
+												   >								<height>40</height>													
+												   >								<font>font13</font>													
+												   >								<label>- $LOCALIZE[24020]</label>													
+												   >								<textcolor>grey2</textcolor>													
+												   >								<focusedcolor>white</focusedcolor>													
+												   >								<texturefocus>MenuItemFO.png</texturefoc													
+												   >								<texturenofocus>MenuItemNF.png</texturen													
+												   >								<enable>!IsEmpty(Skin.String(SubtitleScr													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+												   >								<onclick>Addon.OpenSettings($INFO[Skin.S													
+												   >							</control> 													
+						<control type="label" id="410">										<control type="label" id="410">													
+						<control type="button" id="411">									<control type="button" id="411">													
+							<label>$LOCALIZE[24000] [B]1[/B]</label>								<label>$LOCALIZE[24000] [B]1[/B]</label>													
+							<label2>[COLOR=selected]$INFO[system.add   |								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+						<control type="button" id="412">									<control type="button" id="412">													
+							<label>$LOCALIZE[24000] [B]2[/B]</label>								<label>$LOCALIZE[24000] [B]2[/B]</label>													
+							<label2>[COLOR=selected]$INFO[system.add   |								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+						<control type="button" id="413">									<control type="button" id="413">													
+							<label>$LOCALIZE[24000] [B]3[/B]</label>								<label>$LOCALIZE[24000] [B]3[/B]</label>													
+							<label2>[COLOR=selected]$INFO[system.add   |								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+						<control type="button" id="414">									<control type="button" id="414">													
+							<label>$LOCALIZE[24000] [B]4[/B]</label>								<label>$LOCALIZE[24000] [B]4[/B]</label>													
+							<label2>[COLOR=selected]$INFO[system.add   |								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+						<control type="button" id="415">									<control type="button" id="415">													
+							<label>$LOCALIZE[24000] [B]5[/B]</label>								<label>$LOCALIZE[24000] [B]5[/B]</label>													
+							<label2>[COLOR=selected]$INFO[system.add   |								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+												   >							<control type="button" id="416">													
+												   >								<width>750</width>													
+												   >								<height>40</height>													
+												   >								<font>font13</font>													
+												   >								<label>$LOCALIZE[24000] [B]6[/B]</label>													
+												   >								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >								<textcolor>grey2</textcolor>													
+												   >								<focusedcolor>white</focusedcolor>													
+												   >								<texturefocus>MenuItemFO.png</texturefoc													
+												   >								<texturenofocus>MenuItemNF.png</texturen													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+												   >								<onclick>Skin.SetAddon(HomeVideosButton6													
+												   >							</control>													
+												   >							<control type="button" id="417">													
+												   >								<width>750</width>													
+												   >								<height>40</height>													
+												   >								<font>font13</font>													
+												   >								<label>$LOCALIZE[24000] [B]7[/B]</label>													
+												   >								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >								<textcolor>grey2</textcolor>													
+												   >								<focusedcolor>white</focusedcolor>													
+												   >								<texturefocus>MenuItemFO.png</texturefoc													
+												   >								<texturenofocus>MenuItemNF.png</texturen													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+												   >								<onclick>Skin.SetAddon(HomeVideosButton7													
+												   >							</control>													
+						<control type="label" id="420">										<control type="label" id="420">													
+						<control type="button" id="421">									<control type="button" id="421">													
+							<label>$LOCALIZE[24000] [B]1[/B]</label>								<label>$LOCALIZE[24000] [B]1[/B]</label>													
+							<label2>[COLOR=selected]$INFO[system.add   |								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+						<control type="button" id="422">									<control type="button" id="422">													
+							<label>$LOCALIZE[24000] [B]2[/B]</label>								<label>$LOCALIZE[24000] [B]2[/B]</label>													
+							<label2>[COLOR=selected]$INFO[system.add   |								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+						<control type="button" id="423">									<control type="button" id="423">													
+							<label>$LOCALIZE[24000] [B]3[/B]</label>								<label>$LOCALIZE[24000] [B]3[/B]</label>													
+							<label2>[COLOR=selected]$INFO[system.add   |								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+						<control type="button" id="424">									<control type="button" id="424">													
+							<label>$LOCALIZE[24000] [B]4[/B]</label>								<label>$LOCALIZE[24000] [B]4[/B]</label>													
+							<label2>[COLOR=selected]$INFO[system.add   |								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+						<control type="button" id="425">									<control type="button" id="425">													
+							<label>$LOCALIZE[24000] [B]5[/B]</label>								<label>$LOCALIZE[24000] [B]5[/B]</label>													
+							<label2>[COLOR=selected]$INFO[system.add   |								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+												   >							<control type="button" id="426">													
+												   >								<width>750</width>													
+												   >								<height>40</height>													
+												   >								<font>font13</font>													
+												   >								<label>$LOCALIZE[24000] [B]6[/B]</label>													
+												   >								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >								<textcolor>grey2</textcolor>													
+												   >								<focusedcolor>white</focusedcolor>													
+												   >								<texturefocus>MenuItemFO.png</texturefoc													
+												   >								<texturenofocus>MenuItemNF.png</texturen													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+												   >								<onclick>Skin.SetAddon(HomeMusicButton6,													
+												   >							</control>													
+												   >							<control type="button" id="427">													
+												   >								<width>750</width>													
+												   >								<height>40</height>													
+												   >								<font>font13</font>													
+												   >								<label>$LOCALIZE[24000] [B]7[/B]</label>													
+												   >								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >								<textcolor>grey2</textcolor>													
+												   >								<focusedcolor>white</focusedcolor>													
+												   >								<texturefocus>MenuItemFO.png</texturefoc													
+												   >								<texturenofocus>MenuItemNF.png</texturen													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+												   >								<onclick>Skin.SetAddon(HomeMusicButton7,													
+												   >							</control>													
+						<control type="label" id="430">										<control type="label" id="430">													
+						<control type="button" id="431">									<control type="button" id="431">													
+							<label>$LOCALIZE[24000] [B]1[/B]</label>								<label>$LOCALIZE[24000] [B]1[/B]</label>													
+							<label2>[COLOR=selected]$INFO[system.add   |								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+						<control type="button" id="432">									<control type="button" id="432">													
+							<label>$LOCALIZE[24000] [B]2[/B]</label>								<label>$LOCALIZE[24000] [B]2[/B]</label>													
+							<label2>[COLOR=selected]$INFO[system.add   |								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+						<control type="button" id="433">									<control type="button" id="433">													
+							<label>$LOCALIZE[24000] [B]3[/B]</label>								<label>$LOCALIZE[24000] [B]3[/B]</label>													
+							<label2>[COLOR=selected]$INFO[system.add   |								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+						<control type="button" id="434">									<control type="button" id="434">													
+							<label>$LOCALIZE[24000] [B]4[/B]</label>								<label>$LOCALIZE[24000] [B]4[/B]</label>													
+							<label2>[COLOR=selected]$INFO[system.add   |								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+						<control type="button" id="435">									<control type="button" id="435">													
+							<label>$LOCALIZE[24000] [B]5[/B]</label>								<label>$LOCALIZE[24000] [B]5[/B]</label>													
+							<label2>[COLOR=selected]$INFO[system.add   |								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+												   >							<control type="button" id="436">													
+												   >								<width>750</width>													
+												   >								<height>40</height>													
+												   >								<font>font13</font>													
+												   >								<label>$LOCALIZE[24000] [B]6[/B]</label>													
+												   >								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >								<textcolor>grey2</textcolor>													
+												   >								<focusedcolor>white</focusedcolor>													
+												   >								<texturefocus>MenuItemFO.png</texturefoc													
+												   >								<texturenofocus>MenuItemNF.png</texturen													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+												   >								<onclick>Skin.SetAddon(HomePictureButton													
+												   >							</control>													
+												   >							<control type="button" id="437">													
+												   >								<width>750</width>													
+												   >								<height>40</height>													
+												   >								<font>font13</font>													
+												   >								<label>$LOCALIZE[24000] [B]7[/B]</label>													
+												   >								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >								<textcolor>grey2</textcolor>													
+												   >								<focusedcolor>white</focusedcolor>													
+												   >								<texturefocus>MenuItemFO.png</texturefoc													
+												   >								<texturenofocus>MenuItemNF.png</texturen													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+												   >								<onclick>Skin.SetAddon(HomePictureButton													
+												   >							</control>													
+						<control type="label" id="440">										<control type="label" id="440">													
+						<control type="button" id="441">									<control type="button" id="441">													
+							<label>$LOCALIZE[24000] [B]1[/B]</label>								<label>$LOCALIZE[24000] [B]1[/B]</label>													
+							<label2>[COLOR=selected]$INFO[system.add   |								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+						<control type="button" id="442">									<control type="button" id="442">													
+							<label>$LOCALIZE[24000] [B]2[/B]</label>								<label>$LOCALIZE[24000] [B]2[/B]</label>													
+							<label2>[COLOR=selected]$INFO[system.add   |								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+						<control type="button" id="443">									<control type="button" id="443">													
+							<label>$LOCALIZE[24000] [B]3[/B]</label>								<label>$LOCALIZE[24000] [B]3[/B]</label>													
+							<label2>[COLOR=selected]$INFO[system.add   |								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+						<control type="button" id="444">									<control type="button" id="444">													
+							<label>$LOCALIZE[24000] [B]4[/B]</label>								<label>$LOCALIZE[24000] [B]4[/B]</label>													
+							<label2>[COLOR=selected]$INFO[system.add   |								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+						<control type="button" id="445">									<control type="button" id="445">													
+							<label>$LOCALIZE[24000] [B]5[/B]</label>								<label>$LOCALIZE[24000] [B]5[/B]</label>													
+							<label2>[COLOR=selected]$INFO[system.add   |								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+						<control type="button" id="446">									<control type="button" id="446">													
+							<label>$LOCALIZE[24000] [B]6[/B]</label>								<label>$LOCALIZE[24000] [B]6[/B]</label>													
+							<label2>[COLOR=selected]$INFO[system.add   |								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+												   >							<control type="button" id="447">													
+												   >								<width>750</width>													
+												   >								<height>40</height>													
+												   >								<font>font13</font>													
+												   >								<label>$LOCALIZE[24000] [B]7[/B]</label>													
+												   >								<label2>[COLOR=selected_purple]$INFO[sys													
+												   >								<textcolor>grey2</textcolor>													
+												   >								<focusedcolor>white</focusedcolor>													
+												   >								<texturefocus>MenuItemFO.png</texturefoc													
+												   >								<texturenofocus>MenuItemNF.png</texturen													
+												   >	                                                        <onclick>RunScript(/home/osmc/.kodi/addo													
+												   >								<onclick>Skin.SetAddon(HomeProgramButton													
+												   >							</control>													
+				<control type="scrollbar" id="61">									<control type="scrollbar" id="61">													
+					<left>1060</left>					   |						<posx>1060</posx>													
+					<top>60</top>						   |						<posy>60</posy>													
+					<texturesliderbackground border="0,14,0,14">ScrollBarV.p						<texturesliderbackground border="0,14,0,14">ScrollBarV.p													
+					<texturesliderbar border="0,14,0,14">ScrollBarV_bar.png<						<texturesliderbar border="0,14,0,14">ScrollBarV_bar.png<													
+					<texturesliderbarfocus border="0,14,0,14">ScrollBarV_bar						<texturesliderbarfocus border="0,14,0,14">ScrollBarV_bar													

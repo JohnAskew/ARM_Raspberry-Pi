@@ -1,0 +1,7 @@
+#!/usr/bin/env python
+import xbmc, xbmcgui
+xbmc.executebuiltin('XBMC.PlayerControl(Pause)')
+xbmcgui.Dialog().ok('Pausing for maintenance','After HUBMAINTENANCE completes, click PLAY to continue playing stream.')
+xbmc.executebuiltin('XBMC.RunPlugin(plugin://plugin.video.hubmaintenance/?mode=3&url=plugin://plugin.video.hubmaintenance)')
+
+

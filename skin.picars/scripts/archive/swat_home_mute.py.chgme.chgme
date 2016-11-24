@@ -1,0 +1,4 @@
+import xbmc
+xbmc.executebuiltin(SetVolume(0,1))
+xbmc.playSFX('/home/pi/lcars/wav/tos-lcars-incoming-msg.WAV')
+xbmc.executebuiltin("Notification(Completed,End of Transmission,4000,/home/pi/lcars/avi/lcars-side.png)")

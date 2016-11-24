@@ -1,0 +1,6 @@
+import xbmc, subprocess
+
+locstr = xbmc.getLocalizedString(31110)
+path = xbmc.getInfoLabel('ListItem.FileNameandPath')
+xbmc.executebuiltin('Notification(INCOMING MESSAGE, ' + locstr + ' ,  5000)')
+xbmc.executebuiltin("PlayMedia(/home/osmc/.kodi/addons/skin.picars/lcars/wav/output.mp3)")

@@ -1,0 +1,41 @@
+import xbmc, xbmcgui
+ 
+#get actioncodes from https://github.com/xbmc/xbmc/blob/master/xbmc/guilib/Key.h
+ACTION_PREVIOUS_MENU = 10
+ 
+class MyClass(xbmcgui.Window):
+  def __init__(self):
+    self.addControl(xbmcgui.ControlImage(450,100,400,300, 'red_alert.gif'))
+    self.strActionInfo = xbmcgui.ControlLabel(250, 160, 200, 200, '', 'font30_title', '0xFFFF00FF')
+    self.addControl(self.strActionInfo)
+    self.strActionInfo.setLabel('Confirm Intentions')
+    self.button0 = xbmcgui.ControlButton(250, 200, 200, 100, "Continue")
+    self.addControl(self.button0)
+    self.button1 = xbmcgui.ControlButton(250, 300, 200, 100, "Abort")
+    self.addControl(self.button1)
+    self.setFocus(self.button1)
+    self.button0.controlDown(self.button1)
+    self.button1.controlUp(self.button0)
+ 
+  def onAction(self, action):
+    if action == ACTION_PREVIOUS_MENU:
+      self.close()
+ 
+  def onControl(self, control):
+    if control == self.button0:
+      self.close()
+      xbmc.executebuiltin("ActivateWindow(ShutdownMenu)")
+      xbmc.executebuiltin("XBMC.RunScript(/home/osmc/scripts/binaries/lcars_program_initialized.py)")
+    if control == self.button1:
+      self.close()
+      xbmc.executebuiltin("Notification(Warning,Operation Aborted,1000,/home/pi/lcars/warn/orange.gif)")
+      xbmc.executebuiltin("ActivateWindowAndFocus(9000,1,1)")
+      xbmc.executebuiltin("XBMC.RunScript(/home/osmc/scripts/lcars_cancelled.py)")
+ 
+  def message(self, message):
+    dialog = xbmcgui.Dialog()
+    dialog.ok("PICARS VI Dialog ", message)
+ 
+mydisplay = MyClass()
+mydisplay .doModal()
+del mydisplay

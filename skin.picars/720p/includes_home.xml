@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="Home_Background">
+	       <control type="multiimage" id="1">
+			  <description>background images</description>
+			  <include>Dimensions_Fullscreen</include>
+			  <imagepath>back</imagepath> <!-- add this folder within the media folder. Put in it all the backdrops you wish to use -->
+			  <timeperimage>5000</timeperimage>
+			  <fadetime>2000</fadetime>
+			  <pauseatend>0</pauseatend>
+			  <randomize>true</randomize>
+			  <loop>yes</loop>
+			  <aspectratio>scale</aspectratio>
+			  <!--Askew 20160127 colordiffuse>BackgroundFilterColor</colordiffuse-->  <!-- Optional... remove this line to remove the color overlay -->
+		</control>
+    	</include>
+        <include name="Rcars_space_used">				
+		<control type="label">				        
+			<posx>630</posx>				
+			<posy>329</posy>				
+			<width>200</width>				
+			<height>12</height>				
+			<font>font20_title</font>			
+                        <textcolor>green</textcolor>			
+                        <shadowcolor>-</shadowcolor>           		
+                        <label>[COLOR=lcars_yellow][B]S[/B]pace: [/COLOR] [COLOR=lcars_orange]$INFO[System.UsedSpace][/COLOR]</label>
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible>
+		</control>						
+	</include>							
+        <include name="Rcars_usedspace">                                
+                 <control type="progress">                              
+                        <description>USED SPACE BAR</description>       
+                        <posx>770</posx>                                
+                        <posy>332</posy>                                
+                        <width>300</width>                              
+                        <height>16</height>                             
+                        <colordiffuse>red</colordiffuse>   		
+                        <info>System.UsedSpace</info>              	
+                </control>                                              
+        </include>                                                      
+	<include name="Rcars_space_free">				
+                <control type="label">                                  
+                        <posx>630</posx>                                
+                        <posy>351</posy>                                
+                        <width>200</width>                              
+                        <height>12</height>                             
+                        <font>font20_title</font>                       
+                        <textcolor>green</textcolor>                    
+                        <shadowcolor>-</shadowcolor>                    
+                        <label>[COLOR=lcars_yellow][B]S[/B]pace: [/COLOR] [COLOR=lcars_orange]$INFO[System.FreeSpace][/COLOR]</label>
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible>
+                </control>                                              
+        </include>                                                      
+        <include name="Rcars_freespace">                                
+                 <control type="progress">                              
+                        <description>FREESPACE BAR</description>        
+                        <posx>770</posx>                                
+                        <posy>354</posy>                                
+                        <width>300</width>                              
+                        <height>16</height>                             
+                        <colordiffuse>lcars_true_blue</colordiffuse>    
+                        <info>System.FreeSpace</info>              	
+                </control>                                              
+        </include>                                                      
+        <include name="Rcars_sys1">             
+                <control type="label">          
+                        <description>System CPU Freq</description>
+                        <posx>625</posx>        						
+                        <posy>95</posy>         			
+                        <width>250</width>      			
+                        <height>72</height>     
+                        <align>left</align>     
+                        <aligny>bottom</aligny> 
+                        <font>font12_title</font>	<!--Askew 20160127 was font18_title -->
+                        <textcolor>lcars_orange</textcolor>
+			<shadowcolor>-</shadowcolor>		
+                        <label fallback="31000">[COLOR=green][B]Di-L[/B]ithium[/COLOR] [COLOR=lcars_beige] FREQ.[/COLOR] [COLOR=lcars_orange]$INFO[System.CpuFrequency][/COLOR]</label>
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible>
+		</control>                      
+	</include>
+       <include name="Rcars_sys_temp">
+                <control type="label">          
+                        <description>System CPU Temp</description>
+                        <posx>625</posx>                                 
+                        <posy>115</posy>                                 
+                        <width>150</width>      
+                        <height>72</height>     
+                        <align>left</align>     
+                        <aligny>bottom</aligny> 
+                        <font>font12_title</font>   <!--Askew 20160127 was font18_title -->                    
+                        <textcolor>green</textcolor>
+                        <shadowcolor>-</shadowcolor>           
+                        <label>[COLOR=lcars_beige][B]W[/B]arp Core[/COLOR] [COLOR=red]  TEMP. [/COLOR] [COLOR=lcars_orange]$INFO[System.CPUTemperature][/COLOR]</label>
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible>
+                </control>                      
+	</include>                              
+           <include name="Rcars_core0">          
+                <control type="label">          
+                        <description>System CPU Usage</description>
+                        <posx>892</posx>        		 		
+                        <posy>142</posy>         			
+                        <width>500</width>      
+                        <height>72</height>     
+                        <align>left</align>     
+                        <aligny>center</aligny> 
+                        <font>font21_title</font>			
+                        <aspect>1.25</aspect>				
+                        <linespacing>1.25</linespacing>			
+                        <textcolor>lcars_orange</textcolor>		
+                        <shadowcolor></shadowcolor>			
+                        <label> CPU[COLOR=picars_purple]0[/COLOR]       $INFO[System.CoreUsage(0)]</label>
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible>
+                </control>                      
+        </include>                              
+           <include name="Rcars_core1">					
+                <control type="label">					
+                        <description>System CPU Usage</description>	
+                        <posx>892</posx>                                
+                        <posy>166</posy>                                
+                        <width>500</width>				
+                        <height>72</height>				
+                        <align>left</align>				
+                        <aligny>center</aligny>				
+                        <font>font21_title</font>                  
+                        <aspect>1.25</aspect>                           
+                        <linespacing>1.25</linespacing>                 
+                        <textcolor>lcars_orange</textcolor>              
+                        <shadowcolor></shadowcolor>             	
+                        <label> CPU[COLOR=picars_purple]1[/COLOR]       $INFO[System.CoreUsage(1)]</label>	
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible>
+                </control>						
+        </include>							
+           <include name="Rcars_core2">                                 
+                <control type="label">                                  
+                        <description>System CPU Usage</description>     
+                        <posx>892</posx>                                
+                        <posy>188</posy>                                
+                        <width>500</width>                              
+                        <height>72</height>                             
+                        <align>left</align>                             
+                        <aligny>center</aligny>                         
+                        <font>font21_title</font>                  
+                        <aspect>1.25</aspect>                           
+                        <linespacing>1.25</linespacing>                 
+                        <textcolor>lcars_orange</textcolor>             
+                        <shadowcolor></shadowcolor>                     
+                        <label> CPU[COLOR=picars_purple]2[/COLOR]       $INFO[System.CoreUsage(2)]</label>       
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible>
+                </control>                                              
+        </include>                                                      
+           <include name="Rcars_core3">                                 
+                <control type="label">                                  
+                        <description>System CPU Usage</description>     
+                        <posx>892</posx>                                
+                        <posy>210</posy>                                
+                        <width>500</width>                              
+                        <height>72</height>                             
+                        <align>left</align>                             
+                        <aligny>center</aligny>                         
+                        <font>font21_title</font>                  
+                        <aspect>1.25</aspect>                           
+                        <linespacing>1.25</linespacing>                 
+                        <textcolor>lcars_orange</textcolor>             
+                        <shadowcolor></shadowcolor>                     
+                        <label> CPU[COLOR=picars_purple]3[/COLOR]       $INFO[System.CoreUsage(3)]</label>       
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible>
+                </control>                                              
+        </include>                                                      
+	<include name="Rcars_sys3">					
+               <control type="progress">				
+                        <description>CPU BAR</description>		
+                        <posx>788</posx>				
+                        <posy>92</posy>					
+                        <width>340</width>				
+                        <height>50</height>				
+			<colordiffuse>FFFF00FF</colordiffuse>		
+                        <info>System.CPUUsage</info>			
+                         <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible>
+               </control>						
+        </include>                              			
+        <include name="Rcars_free_mem_num">				
+                <control type="label">					
+                        <description>System FREE Memory Size</description>
+                        <posx>623</posx>                                
+                        <posy>248</posy>                                
+                        <width>200</width>                              
+                        <height>72</height>				
+                        <align>left</align>				
+                        <aligny>bottom</aligny>				
+                        <font>font18_title</font>			
+                        <textcolor>white</textcolor>			
+                        <shadowcolor>-</shadowcolor>			
+                        <label>[COLOR=lcars_yellow]Memory[/COLOR] [COLOR=lcars_true_blue]FREE[/COLOR] $INFO[System.FreeMemory]</label>
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible>
+                </control>						
+        </include>							
+        <include name="Rcars_free_mem">                                 
+                 <control type="progress">                              
+                        <description>FREE MEM Bank BAR</description>    
+                        <posx>683</posx>                                
+                        <posy>234</posy>                                
+                        <width>200</width>                              
+                        <height>18</height>                             
+                        <colordiffuse>lcars_true_blue</colordiffuse>   
+                        <info>System.FreeMemory</info>                  
+                </control>                                              
+        </include>                                                      
+        <include name="Rcars_used_mem_num">                             
+                <control type="label">                                  
+                        <description>System Used Memory Size</description>
+                        <posx>623</posx>                                
+                        <posy>194</posy>                                
+                        <width>200</width>                              
+                        <height>72</height>                             
+                        <align>left</align>                             
+                        <aligny>bottom</aligny>                         
+                        <font>font18_title</font>                       
+                        <textcolor>white</textcolor>                    
+                        <shadowcolor>-</shadowcolor>                    
+                        <label>[COLOR=lcars_yellow]Memory[/COLOR] [COLOR=red]USED[/COLOR] $INFO[System.Memory(used)]</label>
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible>
+                </control>                                              
+        </include>                                                      
+        <include name="Rcars_used_mem"> 	                        
+                 <control type="progress">                              
+                        <description>MEMORY USED BAR</description>      
+                        <posx>683</posx>                                
+                        <posy>213</posy>                                
+                        <width>200</width>                              
+                        <height>18</height>                             
+                        <colordiffuse>red</colordiffuse>   		
+                        <info>system.memory(used)</info>                
+                </control>                                              
+        </include>                                                      
+   <include name="Rcars_sys_tot_mem">                  
+                <control type="label">          
+                        <description>System Memory Total</description>
+                        <posx>893</posx>				       
+                        <posy>280</posy>       				 
+                        <width>140</width>      
+                        <height>72</height>     
+                        <align>left</align>     
+                        <aligny>bottom</aligny> 
+                        <font>font20_title</font>
+                        <textcolor>white</textcolor>
+                        <shadowcolor>-</shadowcolor>
+                        <label>[COLOR=lcars_true_blue]MEMORY[/COLOR]   $INFO[System.Memory(total)]</label>
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible>
+                </control>                      
+  </include>                                    
+   <include name="Rcars_IP">                  
+                <control type="label">          
+                        <description>Network IP</description>
+                        <posx>125</posx>				 
+                        <posy>40</posy>        				
+                        <width>300</width>              
+                        <height>72</height>     
+                        <align>left</align>     
+                        <aligny>center</aligny> 
+                        <font>font21_title</font>			
+                        <textcolor>FFFFFFFF</textcolor>			
+                        <shadowcolor>-</shadowcolor>
+                        <label>[COLOR=red][B]FLEET[/B] [/COLOR]  $INFO[Network.IPAddress]</label>
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible>
+                </control>                      
+  </include>                                    
+   <include name="Rcars_sys8">                  
+                <control type="label">          
+                        <description>System Host Name</description>
+                        <posx>318</posx>				
+                        <posy>0</posy>       				
+                        <width>500</width>  <!--Askew20161121 was 300 -->            		
+                        <height>100</height>   				
+                        <align>left</align>     
+                        <aligny>center</aligny> 
+                        <font>font_MainMenu</font>
+                        <textcolor>red</textcolor>
+                        <shadowcolor>-</shadowcolor>
+                        <label fallback="31000">$INFO[System.FriendlyName]</label>
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible>
+                </control>                      
+  </include>                                    
+   <include name="Rcars_sys9">                  
+                <control type="label">          
+                        <description>Network Link State</description>
+                        <posx>125</posx>				       			
+                        <posy>20</posy>        				
+                        <width>200</width>      
+                        <height>72</height>     
+                        <align>left</align>     
+                        <aligny>center</aligny> 
+                        <font>font21_title</font>			
+                        <textcolor>FFFFFFFF</textcolor>			
+                        <shadowcolor>-</shadowcolor>
+                        <label>[COLOR=red][B]STAR[/B] [/COLOR]   $INFO[Network.LinkState]</label>
+                        <visible>!Container(9000).Hasfocus(10)| Container(9000).Hasfocus(10) + Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible>
+                </control>                      
+  </include>                                    
+  <include name="Rczi_EOC">       	             	                                        
+	<control type="group">									
+	       		<control type="image">								
+				<visible>Control.IsVisible(51) |  Control.IsVisible(500) | Control.IsVisible(505)   </visible>
+                                <posx>550</posx>                                                
+                                <posy>450</posy>                                                
+				<width>155</width>                                              
+                		<aspectratio>keep</aspectratio>			                
+				<texture>$VAR[v_starfleet_emblem]</texture>	
+			</control>								
+                        <control type="image">                                                  
+                                <visible>Control.IsVisible(50) </visible>			
+                        	<posx>355</posx>                                                
+                        	<posy>450</posy>                                                
+                                <width>155</width>                                              
+                                <aspectratio>keep</aspectratio>                                 
+                                <texture>$VAR[v_starfleet_emblem]</texture>     
+                        </control>                                                              
+                        <control type="image">                                                  
+                                <visible>Control.IsVisible(504)  </visible>			
+                                <posx>325</posx>                                                
+                                <posy>450</posy>                                                
+                                <width>155</width>                                              
+                                <aspectratio>keep</aspectratio>                                 
+                                <texture>$VAR[v_starfleet_emblem]</texture>     
+                        </control>                                                              
+                        <control type="image">                                                  
+                                <visible> Control.IsVisible(550) </visible>			
+                                <posx>305</posx>                                                
+                                <posy>460</posy>                                                
+                                <width>155</width>                                              
+                                <aspectratio>keep</aspectratio>                                 
+                                <texture>$VAR[v_starfleet_emblem]</texture>     
+                        </control>                                                              
+                        <control type="image">                                                  
+                                <visible>Control.IsVisible(551)  </visible>			
+                                <posx>400</posx>                                                
+                                <posy>460</posy>                                                
+                                <width>155</width>                                              
+                                <aspectratio>keep</aspectratio>                                 
+                                <texture>$VAR[v_starfleet_emblem]</texture>     
+                        </control>                                                              
+                        <control type="image">                                                  
+                                <visible>Control.IsVisible(506)  </visible>                     
+                                <posx>400</posx>                                                
+                                <posy>460</posy>                                                
+                                <width>155</width>                                              
+                                <aspectratio>keep</aspectratio>                                 
+                                <texture>$VAR[v_starfleet_emblem]</texture>     
+                        </control>                                                              
+                        <control type="image">                                                  
+                                <visible>Control.IsVisible(514)  </visible>                     
+                                <posx>235</posx>                                                
+                                <posy>467</posy>                                                
+                                <width>155</width>                                              
+                                <aspectratio>keep</aspectratio>                                 
+                                <texture>$VAR[v_starfleet_emblem]</texture>     
+                        </control>                                                              
+                        <control type="image">                                                  
+                                <visible>Control.IsVisible(501)  </visible>                     
+                                <posx>540</posx>                                                
+                                <posy>450</posy>                                                
+                                <width>155</width>                                              
+                                <aspectratio>keep</aspectratio>                                 
+                                <texture>$VAR[v_starfleet_emblem]</texture>     
+                        </control>                                                              
+	</control>										
+  </include>                                                                                    
+  <include name="Rczi_EOC_1090-630">								
+               <control type="image">                                                          	
+			<description>Emblem overlay for ContentPanel 1090x630</description>	
+                                <posx>550</posx>                                                
+                                <posy>416</posy>                                                
+                                <width>155</width>                                              
+                                <height>155</height>                                              
+                                <texture>$VAR[v_starfleet_emblem]</texture>     
+               </control>                                                                      		
+  </include>                                    						
+  <include  name="Rczi_EOC_1090-630_b">               						
+		<control type="image">                                                          
+			<posx>545</posx>                                                        
+			<posy>430</posy>                                                        
+			<width>128</width>                                                      
+			<height>128</height>
+			<texture>$VAR[v_starfleet_emblem]</texture>             
+		</control>                                                                      
+  </include>                                    						
+</includes>

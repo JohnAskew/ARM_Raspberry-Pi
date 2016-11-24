@@ -1,0 +1,4 @@
+import xbmc, xbmcgui
+if  not xbmc.Player().isPlaying() :
+    xbmc.executebuiltin("Notification(ATTENTION, Processing, 2000,/home/osmc/.kodi/addons/skin.confluence7/lcars/avi/yellow.gif)")
+    xbmc.playSFX('/home/osmc/.kodi/addons/skin.confluence7/lcars/wav/tos-lcars-accessing-files.wav')

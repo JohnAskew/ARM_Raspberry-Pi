@@ -1,0 +1,11 @@
+import xbmc,  os, subprocess, time
+
+time.sleep(1)
+
+locstr1 =  xbmc.getInfoLabel('ListItem.Label')
+myURL = "http://translate.google.com/translate_tts?ie=UTF-8&tl=en&q=" + locstr1
+myDir="/home/pi/lcars/wav/output.mp3"
+cmd = "wget -q -U Mozilla -O " + myDir + " " + myURL
+subprocess.call(['wget', '-q', '-U Mozilla', '-O', myDir, myURL])
+xbmc.executebuiltin('Notification('+ locstr1 +' , '+ cmd +', 4000,/home/pi/lcars/avi/yellow.gif)')
+xbmc.executebuiltin("PlayMedia(/home/pi/lcars/wav/output.mp3)")

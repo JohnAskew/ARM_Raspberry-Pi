@@ -1,0 +1,11 @@
+#!/usr/bin/env python
+import xbmc
+import json
+jsonSWAT_Sel_Vid = '{"jsonrpc": "2.0","method": "Player.GetItem","params": {"properties": ["file"],"playerid": 1},"id": "VideoGetItem"}'
+result = json.loads(xbmc.executeJSONRPC(jsonSWAT_Sel_Vid))['result']
+print result
+xbmc.executebuiltin('XBMC.PlayerControl(Pause)')
+xbmc.executebuiltin('XBMC.RunPlugin(plugin://plugin.video.hubmaintenance/?mode=3&url=plugin://plugin.video.hubmaintenance)')
+xbmc.executebuiltin('XBMC.PlayerControl(Play)')
+
+

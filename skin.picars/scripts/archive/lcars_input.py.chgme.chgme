@@ -1,0 +1,3 @@
+import xbmc
+if  not xbmc.Player().isPlaying() :
+    xbmc.playSFX('/home/pi/lcars/wav/input_comm.wav')

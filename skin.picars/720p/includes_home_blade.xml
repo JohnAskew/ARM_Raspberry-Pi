@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+        <include name="HomeBlade">
+        <animation effect="slide" start="-255,0" end="0,0" time="300" tween="quadratic" easing="out">WindowOpen</animation>	
+        <animation effect="slide" start="-3,0" end="250,0" time="400" tween="quadratic" easing="out" condition="ControlGroup(9950).HasFocus() |  Control.HasFocus(7999) | Control.HasFocus(9910) | Control.HasFocus(8001)">Conditional</animation>	
+                <control type="button" id="7999">						
+                        <description>Fake button for mouse control</description>
+			<posx>0</posx>
+                        <posy>0</posy>
+                        <width>250</width>
+                        <height>420</height>
+                        <label>-</label>
+                        <font>-</font>
+                        <texturenofocus>-</texturenofocus>
+                        <texturefocus>-</texturefocus>
+                        <visible>true</visible>
+                </control>
+                <control type="button" id="8001">				
+                        <posx>250</posx>
+                        <posy>20</posy>					
+                        <width>42</width>
+                        <height>128</height>
+                        <font>-</font>
+			<bordertexture>lcz_background_orange.png</bordertexture>
+			<bordersize>5</bordersize>
+                        <texturefocus>rcz_HasSub_comm.png</texturefocus>
+                        <texturenofocus>rcz_HasSub_comm.png</texturenofocus>
+			<visible>!Control.HasFocus(21) + !Control.HasFocus(20) + !ControlGroup(7950).HasFocus() + !ControlGroup(8950).HasFocus() + !Control.HasFocus(8901) + !Control.HasFocus(7901) + !Control.HasFocus(6989) + !Control.HasFocus(6901)</visible>
+                </control>
+                <control type="image"> 								
+                        <posx>0</posx> 								
+                        <posy>0</posy> 								
+                        <width>250</width> 							
+                        <height>400</height> 							
+                        <texture>rcz_MediaBladeSub.gif</texture> 	
+                        <bordertexture>lcz_background_orange.png</bordertexture>    
+                        <bordersize>2,10,-3,2</bordersize>                                      
+                </control> 							
+                <control type="group" id="9950">
+                        <posx>0</posx>
+                        <posy>5</posy>
+                        <width>200</width>
+                        <height>100</height>
+                        <texture>-</texture>
+                        <bordertexture>lcz_background_orange.png</bordertexture>
+                        <bordersize>5</bordersize>
+                        <control type="button" id="9951">
+                                <posx>0</posx>
+                                <posy>4</posy>
+                                <width>45</width>
+                                <height>45</height>
+                                <onup>9950</onup>
+                                <ondown>setFocus(9910,1)</ondown>
+                                <onleft>9953</onleft>
+                                <onright>9952</onright>
+				<onclick>setFocus(7952)</onclick> <!--Askew 20160127 was 7950-->
+                                <texturefocus border="5">osdchanneldownfo.png</texturefocus>
+                                <texturenofocus border="5">osdchanneldownnf.png</texturenofocus>
+                        </control>
+                        <control type="button" id="9952">
+                                <posx>43</posx>
+                                <posy>4</posy>
+                                <width>45</width>
+                                <height>45</height>
+                                <onup>9950</onup>
+                                <ondown>setFocus(9910,1)</ondown>
+                                <onleft>9951</onleft>
+                                <onright>9953</onright>
+				<onclick>setFocus(8952)</onclick>
+                                <texturefocus border="5">osdchannelupfo.png</texturefocus>
+                                <texturenofocus border="5">osdchannelupnf.png</texturenofocus>
+                        </control>
+                        <control type="button" id="9953">
+				<description>Close Window button</description>
+				<posx>185</posx>
+				<posy>6</posy>
+				<width>64</width>
+				<height>32</height>
+				<label>-</label>
+				<font>-</font>
+				<onclick>RunScript($VAR[v_SCRIPT_HOME]/lcars_cancelled.py)</onclick>
+				<onclick>setFocus(9000)</onclick>
+				<texturefocus>DialogCloseButton-focus.png</texturefocus>
+				<texturenofocus>DialogCloseButton.png</texturenofocus>
+				<onleft>9952</onleft>
+				<onright>9951</onright>
+				<onup>9950</onup>
+				<ondown>setFocus(9910,1)</ondown>
+				<visible>system.getbool(input.enablemouse)</visible>
+                        </control>
+                </control>
+		<control type="group" id="9900">
+                        <control type="fixedlist" id="9910">                    
+		<!--Askew 20160127 - Start of Main Menu - next line is "on load or on start-up - which choice? -->
+                            <defaultcontrol always="false">2</defaultcontrol>	 <!--Askew 20160127 was 7 -->
+                            <posx>50</posx>                                     
+                            <posy>100</posy>                                    
+                            <width>225</width>                                  
+                            <height>280</height>                                
+                            <onup>9910</onup>
+                            <ondown>9910</ondown>
+                            <onright>9001</onright>                             
+                            <onleft>9951</onleft>
+                            <orientation>vertical</orientation>
+                            <pagecontrol>-</pagecontrol>                        
+                            <scrolltime>1000</scrolltime>			
+                            <focusposition>1</focusposition>                    
+                            <movement>0</movement>
+                            <scrolltime tween="quadratic" easing="Out">1000</scrolltime>	
+                            <visible>true</visible>
+                            <itemlayout width="200" height="85">                
+                                        <control type="label">
+                                                <posx>0</posx>					
+                                                <posy>0</posy>						
+                                                <width>200</width>                              
+                                                <height>80</height>                     
+                                                <align>left</align>
+                                                <label>$INFO[ListItem.Label]</label>
+                                                <textcolor>ff808080</textcolor>
+                                                <font>font35_title</font>                               
+                                        </control>
+                            </itemlayout>
+                            <focusedlayout width="200" height="85">                     
+                                  <texturefocus border="5">lcars_floor_buttonFO.gif</texturefocus>
+                                        <control type="label">
+                                                <posx>20</posx>					
+                                                <posy>0</posy>						
+                                                <width>200</width>                                      
+                                                <height>80</height>                             
+                                                <align>left</align>
+                                                <label>$INFO[ListItem.Label]</label>
+                                                <font>font35_title</font>                       
+                                        </control>
+                                        <control type="image">
+                                                <posx>0</posx>
+                                                <posy>10</posy>					
+                                                <width>20</width>
+                                                <height>20</height>
+                                                <aspectratio>keep</aspectratio>
+                                                <texture>OSDPlay.png</texture>
+                                                <visible>!Container(9910).HasFocus(2)</visible>
+                                        </control>
+                                        <control type="image">
+                                                <posx>0</posx>
+                                                <posy>10</posy>					
+                                                <width>20</width>
+                                                <height>20</height>
+                                                <aspectratio>keep</aspectratio>
+                                                <texture>OSDPause.png</texture>
+                                                <visible>Container(9910).HasFocus(2)</visible>
+                                        </control>
+                                        <control type="label">
+                                                <posx>20</posx>					
+                                                <posy>0</posy>
+                                                <width>200</width>                                      
+                                                <height>75</height>                             
+                                                <align>left</align>
+                                                <textcolor>ffffffff</textcolor>
+                                                <label>$INFO[ListItem.Label]</label>
+                                                <font>font35_title</font>                               
+                                        </control>
+                        </focusedlayout>
+                        <content>
+                               <item id="69">                                  
+                                      <label>ReLoad Skin</label>                   
+                                      <onclick>RunScript($VAR[v_SCRIPT_HOME]/lcars_HOME_wav.py)</onclick>
+                                      <onclick>XBMC.ReloadSkin()</onclick>        
+                                      <icon>-</icon>                              
+                                      <thumb>-</thumb>                            
+                                      <onright>9950</onright>
+                        	      <onfocus>RunScript($VAR[v_SCRIPT_HOME]/swat_home_display_init.py)</onfocus>
+                               </item>                                         
+                       	       <item id="70">
+                                      <label>Engineering</label>
+                                      <onclick>SetFocus(99)</onclick>
+                                      <!--onclick>ActivateWindow(1234)</onclick-->
+                                      <icon>-</icon>
+                                      <thumb>-</thumb>
+                                      <onright>9950</onright>
+                               </item>
+                               <item id="71">
+				      <label>Science Deck</label>
+				      <onclick>SetFocus(7953)</onclick>
+				      <icon>-</icon>
+				      <thumb>-</thumb>
+                                      <onright>9950</onright>
+			       </item>
+                               <item id="7">
+                                     <label>8</label>
+                                     <onclick>RunScript($VAR[v_SCRIPT_HOME]/home/lcars_weather.py)</onclick>
+                                     <onclick>ActivateWindow(Weather)</onclick>
+                                     <icon>-</icon>
+                                     <thumb>-</thumb>
+                                     <visible>!Skin.HasSetting(HomeMenuNoWeatherButton) + !IsEmpty(Weather.Plugin)</visible>
+                               </item>
+                               <item id="4">
+                                     <label>1</label>
+                                     <onclick>RunScript($VAR[v_SCRIPT_HOME]/home/lcars_graphics.py)</onclick>
+                                     <onclick>ActivateWindow(Pictures)</onclick>
+                                     <icon>-</icon>
+                                     <thumb>-</thumb>
+                                     <visible>!Skin.HasSetting(HomeMenuNoPicturesButton)</visible>
+                                </item>
+                                <item id="12">
+                                      <label>31502</label>
+                                      <onclick>RunScript($VAR[v_SCRIPT_HOME]/home/lcars_tv.py)</onclick>
+                                      <onclick>ActivateWindow(PVR)</onclick>
+                                      <icon>-</icon>
+                                      <thumb>-</thumb>
+                                      <visible>System.GetBool(pvrmanager.enabled)</visible>
+                                </item>
+                                <item id="2">
+                                     <label>3</label>
+                                     <onclick>RunScript($VAR[v_SCRIPT_HOME]/home/lcars_videos.py)</onclick>
+                                     <onclick condition="StringCompare(Window.Property(VideosDirectLink),True)">ActivateWindow(Videos)</onclick>
+                                     <onclick condition="!StringCompare(Window.Property(VideosDirectLink),True)">ActivateWindow(Videos,root)</onclick>
+                                     <icon>-</icon>
+                                     <thumb>-</thumb>
+                                     <visible>!Skin.HasSetting(HomeMenuNoVideosButton)</visible>
+                                </item>
+                                <item id="10">
+                                     <label>20342</label>
+                                     <onclick>RunScript($VAR[v_SCRIPT_HOME]/home/lcars_movies.py)</onclick>
+                                     <onclick condition="StringCompare(Window.Property(VideosDirectLink),True)">ActivateWindow(Videos)</onclick>
+                                     <onclick>ActivateWindow(Videos,MovieTitles,return)</onclick>
+                                     <icon>-</icon>
+                                     <thumb>-</thumb>
+                                     <visible>!Skin.HasSetting(HomeMenuNoMovieButton) + Library.HasContent(Movies)</visible>
+                                </item>
+                                <item id="11">
+					<label>20343</label>
+					<onclick>RunScript($VAR[v_SCRIPT_HOME]/home/lcars_videos.py)</onclick>
+					<onclick>ActivateWindow(Videos,TVShowTitles,return)</onclick>
+					<icon>-</icon>
+					<thumb>-</thumb>
+                                        <visible>!Skin.HasSetting(HomeMenuNoTVShowButton) + Library.HasContent(TVShows)</visible>
+                                </item>
+                                <item id="3">
+					<label>2</label>
+					<onclick>RunScript($VAR[v_SCRIPT_HOME]/home/lcars_music.py)</onclick>
+					<onclick>ActivateWindow(Music)</onclick>
+					<icon>-</icon>
+					<thumb>-</thumb>
+					<visible>!Skin.HasSetting(HomeMenuNoMusicButton)</visible>
+                                </item>
+                                <item id="1">
+					<label>0</label>
+					<onclick>RunScript($VAR[v_SCRIPT_HOME]/home/lcars_binaries.py)</onclick>
+					<onclick condition="!System.Platform.Android">ActivateWindow(Programs,Addons,return)</onclick>
+					<onclick condition="System.Platform.Android">ActivateWindow(Programs)</onclick>
+					<icon>-</icon>
+					<thumb>-</thumb>
+					<visible>!Skin.HasSetting(HomeMenuNoProgramsButton)</visible>
+			</item>
+                                <item id="6">
+					<label>341</label>
+					<onclick>RunScript($VAR[v_SCRIPT_HOME]/lcars_HOME_wav.py)</onclick>
+					<onclick>XBMC.PlayDVD()</onclick>
+					<icon>-</icon>
+					<thumb>-</thumb>
+					<visible>System.HasMediaDVD</visible>
+                                </item>
+                                <item id="5">
+					<label>13000</label>
+					<onclick>RunScript($VAR[v_SCRIPT_HOME]/home/lcars_lcars.py)</onclick>
+					<onclick>ActivateWindow(Settings)</onclick>
+					<icon>-</icon>
+                                        <thumb>-</thumb>
+                                </item>
+                        </content>
+		   </control>
+             </control>
+        </include> 								
+	<include name="HomeBladeEngineer">
+	<defaultcontrol always="true">20</defaultcontrol>
+        <include>Window_OpenClose_Animation</include>
+        <animation effect="slide" start="-255,0" end="0,0" time="300" tween="quadratic" easing="out">WindowOpen</animation>	
+        <animation effect="slide" start="-3,0" end="250,0" time="400" tween="quadratic" easing="out" condition="Control.HasFocus(21) |ControlGroup(8950).HasFocus() | Control.HasFocus(20) | Control.HasFocus(8901)  |   Container(8989).HasFocus() ">Conditional</animation>
+                <control type="button" id="8989">
+                        <description>Fake button for mouse control</description>
+                        <posx>0</posx>					
+                        <posy>480</posy>
+                        <width>250</width>
+                        <height>240</height>
+                        <label>-</label>
+                        <font>-</font>
+                        <texturenofocus>-</texturenofocus>
+                        <texturefocus>-</texturefocus>
+                        <visible>true</visible>
+                </control>
+                <control type="button" id="8901">
+                        <posx>249</posx>
+                        <posy>550</posy>					
+                        <width>42</width>
+                        <height>128</height>
+                        <font>-</font>
+                        <texturefocus>rcz_HasSub_comm.png</texturefocus>
+                        <texturenofocus>rcz_HasSub_comm.png</texturenofocus>
+			<visible>!Control.HasFocus(21) + !Control.HasFocus(20) + !ControlGroup(9950).HasFocus() + !ControlGroup(7950).HasFocus() + !Control.HasFocus(9910) + !Control.HasFocus(7901) + !Control.HasFocus(6989) + !Control.HasFocus(6901)</visible>
+                </control>
+                <control type="image" id="8902">                                                          
+                        <posx>0</posx>                                                        
+                        <posy>480</posy>                                                          
+                        <width>250</width>                                                      
+                        <height>240</height>                                                    
+                        <texture>rcz_MediaBladeSub.gif</texture>  				
+                        <bordertexture>lcz_background_orange.png</bordertexture>    
+                        <bordersize>2,10,-1,2</bordersize>                                      
+                </control>                                                      
+                <control type="image">                                          
+                        <description>LOGO</description>                         
+                        <posx>4</posx>                                          
+                        <posy>488</posy>                                         
+                        <align>left</align>                                     
+                        <width>243</width>                                      
+                        <height>80</height>                                     
+                        <aspectratio>keep</aspectratio>                            
+			<texture>-</texture>  
+                        <background>SubMenuBack-MiddleFO.png</background>       
+                </control>                                                      
+                <control type="group" id="8950">
+			<posx>0</posx>
+			<posy>486</posy>
+			<width>200</width>
+			<height>100</height>
+			<texture>-</texture>
+                        <control type="button" id="8951">
+                                <posx>0</posx>
+                                <posy>4</posy>
+                                <width>45</width>
+                                <height>45</height>
+                                <onup>8950</onup>
+                                <ondown>21</ondown>
+                                <onleft>8953</onleft>
+                                <onright>8952</onright>
+				<onclick>setFocus(9951)</onclick>
+                                <texturefocus border="5">osdchanneldownfo.png</texturefocus>
+                                <texturenofocus border="5">osdchanneldownnf.png</texturenofocus>
+                        </control>
+                        <control type="button" id="8952">
+                                <posx>43</posx>
+                                <posy>4</posy>
+                                <width>45</width>
+                                <height>45</height>
+                                <onup>8950</onup>
+                                <ondown>21</ondown>
+                                <onleft>8951</onleft>
+                                <onright>8953</onright>
+				<onclick>setFocus(7952)</onclick>
+                                <texturefocus border="5">osdchannelupfo.png</texturefocus>
+                                <texturenofocus border="5">osdchannelupnf.png</texturenofocus>
+                        </control>
+                        <control type="button" id="8953">
+                                        <description>Close Window button</description>
+                                        <posx>185</posx>
+                                        <posy>6</posy>
+                                        <width>64</width>
+                                        <height>32</height>
+                                        <label>-</label>
+                                        <font>-</font>
+                                        <onclick>RunScript($VAR[v_SCRIPT_HOME]/lcars_cancelled.py)</onclick>
+                                        <onclick>setFocus(9910,1)</onclick>
+                                        <texturefocus>DialogCloseButton-focus.png</texturefocus>
+                                        <texturenofocus>DialogCloseButton.png</texturenofocus>
+                                        <onleft>8952</onleft>
+                                        <onright>8951</onright>
+                                        <onup>8950</onup>
+                                        <ondown>21</ondown>
+                                        <visible>system.getbool(input.enablemouse)</visible>
+                        </control>
+                </control>
+                <control type="button" id="21">
+                        <description>Favourites push button</description>
+                        <posx>15</posx>
+                        <posy>605</posy>
+                        <width>100</width>
+                        <height>110</height>
+                        <label>90</label>
+                        <onleft>8951</onleft>
+                        <onright>20</onright>
+                        <onup>8953</onup>
+                        <ondown>8953</ondown>
+                        <onclick>RunScript($VAR[v_SCRIPT_HOME]/lcars_HOME_wav.py)</onclick>
+                        <onclick>ActivateWindow(Favourites)</onclick>
+                        <texturefocus border="5">lcars_floor_buttonFO.gif</texturefocus>
+                        <texturenofocus border="5">floor_button.png</texturenofocus>
+                </control>
+                <control type="image">
+                        <description>Favourites Icon</description>
+                        <posx>25</posx>
+                        <posy>615</posy>
+                        <width>80</width>
+                        <height>90</height>
+                        <texture>icon_fav.png</texture>
+		</control>
+                <control type="button" id="20">
+                        <description>Power push button</description>
+                        <posx>130</posx>
+                        <posy>605</posy>
+                        <width>100</width>
+                        <height>110</height>
+                        <onleft>21</onleft>
+                        <onright>8953</onright>
+                        <onup>8950</onup>
+                        <ondown>8953</ondown>
+                        <label>31003</label>
+                        <onfocus>RunScript($VAR[v_SCRIPT_HOME]/swat_home_display_power.py)</onfocus>
+                        <onclick>RunScript($VAR[v_SCRIPT_HOME]/lcars_HOME_wav.py)</onclick>
+                        <onclick>ActivateWindow(ShutdownMenu)</onclick>
+                        <texturefocus border="5">lcars_floor_buttonFO.gif</texturefocus>
+                        <texturenofocus border="5">floor_button.png</texturenofocus>
+                </control>
+                <control type="image">
+                        <posx>140</posx>
+                        <posy>615</posy>
+                        <width>80</width>
+                        <height>90</height>
+                        <texture>icon_power1.png</texture>
+                </control>
+        </include> 								
+</includes>
